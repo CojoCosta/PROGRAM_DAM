@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Menu {
     public void menu() {
         Scanner sc = new Scanner(System.in);
+        Aula aula1 = new Aula(3, 3);
         int option;
         do {
             System.out.println("1.- Ver tabla de notas: ");
@@ -16,7 +17,7 @@ public class Menu {
             System.out.println("7.- Nota máxima y mínima de una asignuta: ");
             System.out.println("8.- Modificar una nota: ");
             System.out.println("9.- Salir.");
-            System.out.print("Elige una opcion:");
+            System.out.print("Elige una opcion: ");
             option = sc.nextInt();
             switch (option) {
                 case 1:
@@ -37,10 +38,15 @@ public class Menu {
                 case 6:
                     ;
                 case 7:
-                    ;
+                int[][] matrizPrueba = new int[4][4];
+                    System.out.println(aula1.notaMaxima(matrizPrueba));
                 case 8:
                     ;
                     break;
+                case 9:
+                    System.out.println("Gracias por usar el programa");;
+                    break;
+
                 default:
                     System.out.println("Opcion no valida");
                     break;

@@ -50,7 +50,7 @@ public class Aula {
     public Aula(int nombres, int materias){
         int[][] matrizNotas = new int [nombres][materias]; 
         setNotas(matrizNotas);
-        for (int i = 0; i < nombres; i++) {
+        for (int i = 1; i <= nombres; i++) {
             for (int j = 0; j < materias; j++) {
                 matrizNotas[i][j] = (int)(Math.random() * 11);
             }
@@ -59,6 +59,13 @@ public class Aula {
     //#endregion
 
     //#region FUNCIONES
+    public void verTabla(int[][]notas){
+        for (int i = 0; i < notas.length; i++) {
+            for (int j = 0; j < notas[i].length; j++) {
+                System.out.printf("%4d",notas[i][j]);
+            }
+        }
+    }
     public int media(int[][] notas){
         int acumulador = 0;
         for (int i = 0; i < notas.length; i++) {
