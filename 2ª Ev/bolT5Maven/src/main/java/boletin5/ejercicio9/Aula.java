@@ -91,7 +91,18 @@ public class Aula {
             }
         }
         return acumulador / notas.length;
+    }
 
+    public int notaMaxima(int[][] notas){
+        int notaMaxima = 0;
+        for (int i = 0; i < notas.length; i++) {
+            for (int j = 0; j < notas[i].length; j++) {
+                if (notas[i][j] > notaMaxima) {
+                    notaMaxima = notas[i][j];
+                }
+            }
+        }
+        return notaMaxima;
     }
     //#endregion
 }
