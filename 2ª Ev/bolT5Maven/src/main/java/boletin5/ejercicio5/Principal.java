@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-class Principal {
+public class Principal {
 
     public static void main(String[] args) throws Exception {
         File archivo = new File("ventas.txt");
