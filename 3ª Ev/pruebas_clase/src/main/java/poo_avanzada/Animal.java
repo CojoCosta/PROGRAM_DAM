@@ -11,4 +11,10 @@ public class Animal {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    public void muestraDatos(){
+        System.out.printf("\nTengo %d años", this.edad);
+        }
+
+    
 }

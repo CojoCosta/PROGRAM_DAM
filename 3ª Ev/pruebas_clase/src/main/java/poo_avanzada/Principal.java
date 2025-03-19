@@ -10,5 +10,8 @@ public class Principal {
         System.out.println();
         System.out.println(p.nombreHumano);
         System.out.println(p.nombreCientifico);
+
+        p.muestraDatos();
+        m.muestraDatos();
     }
 }

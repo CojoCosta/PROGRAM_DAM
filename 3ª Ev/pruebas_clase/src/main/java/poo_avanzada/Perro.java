@@ -5,10 +5,12 @@ class Perro extends Animal {
     public String nombreHumano;
 
     public Perro() {
+        this(0, "", "");//Para hacer el constructor corto (Tiene que ser el primero)
         this.nombreCientifico = "Canis Familiaris";
     }
 
     public Perro(int edad, String raza, String nombreHumano) {
+        super();//Igual que this en el constructor pero para el constructor de la superclase
         this.setEdad(edad);
         this.raza = raza;
         this.nombreHumano = nombreHumano;
