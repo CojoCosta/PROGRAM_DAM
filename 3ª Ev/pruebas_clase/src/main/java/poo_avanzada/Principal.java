@@ -6,14 +6,14 @@ public class Principal {
     public static void main(String[] args) {
         // -------Clase Animal y subclases-------//
         Mosca m = new Mosca();
-        Perro p = new Perro(5, "Palleiro", "Lucky");
+        Perro p2 = new Perro(5, "Palleiro", "Lucky");
         System.out.println(m.nombreCientifico);
         System.out.println(m.getEdad());
         System.out.println();
-        System.out.println(p.nombreHumano);
-        System.out.println(p.nombreCientifico);
+        System.out.println(p2.nombreHumano);
+        System.out.println(p2.nombreCientifico);
 
-        p.muestraDatos();
+        p2.muestraDatos();
         m.muestraDatos();
 
         // -------POLIMORFISMO------------//
@@ -58,8 +58,9 @@ public class Principal {
         perros.add(new Perro(5, "Pekines", "Buff"));
         perros.add(new Perro(5, "Caniche", "Thor"));
 
-        Perro p1 = new Perro(5, "Pekines", "Buff");
+        // Perro p1 = new Perro(5, "Pekines", "Buff");  //Da false
+        Perro p1 = perros.get(2); //Da true
 
-        System.out.printf("%s %s existe en la colección\n", p.nombreHumano, perros.contains(p) ? "Sí" : "No");
+        System.out.printf("%s %s existe en la colección\n", p1.nombreHumano, perros.contains(p1) ? "Sí" : "No");
     }
 }
