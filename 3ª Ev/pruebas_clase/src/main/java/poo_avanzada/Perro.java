@@ -20,4 +20,15 @@ class Perro extends Animal {
     public void ladrar() {
         System.out.println("GUAU!!!");
     }
+
+    private double temperatura;
+    public void setTemperatura(double temperatura) {
+        this.temperatura = temperatura;
+        if (temperatura > 39.0) {
+            throw new FiebreException();
+        }
+    }
+    public double getTemperatura() {
+        return temperatura;
+    }
 }
