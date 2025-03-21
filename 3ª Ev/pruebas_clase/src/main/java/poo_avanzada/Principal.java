@@ -62,5 +62,8 @@ public class Principal {
         Perro p1 = perros.get(2); //Da true
 
         System.out.printf("%s %s existe en la colección\n", p1.nombreHumano, perros.contains(p1) ? "Sí" : "No");
+
+        //-------------------//
+        
     }
 }
