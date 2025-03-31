@@ -8,47 +8,53 @@ public class Ejer3B {
         Scanner sc = new Scanner(System.in);
         System.out.println(mensaje);
         double numeroUsuario;
-        if (max - min < 2 || max < min || mensaje == "" || mensaje == null) {
+        boolean isChecked = true;
+        if (mensaje == null||max - min < 2 ||  mensaje.equals("") ) {
             throw new IllegalArgumentException("Algo has hecho mal");
-        } else{
+        } else {
+            System.out.println(mensaje);
             System.out.printf("Escribe un numero entre %d y %d: ", min, max);
             do {
                 try {
-                    numeroUsuario = sc.nextDouble();
+                    numeroUsuario = sc.nextInt();
                     while (numeroUsuario < min || numeroUsuario > max) {
                         System.out.print("Escribe un numero dentro del rango: ");
-                        numeroUsuario = sc.nextDouble();
+                        numeroUsuario = sc.nextInt();
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Introduce un numero: ");
                     sc.nextLine();
-                    numeroUsuario = 0;
+                    isChecked = false;
                 }
 
-            } while (numeroUsuario == 0 );
+            } while (isChecked == false);
         }
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double minimo;
+
+        // pedirDato("hola", -5, 5);
+        boolean isChecked = true;
         do {
             try {
                 System.out.print("Dime el minimo: ");
                 minimo = sc.nextInt();
                 System.out.print("Dime el maximo: ");
                 double maximo = sc.nextInt();
+                sc.nextLine();
                 System.out.print("Escribe un mensaje: ");
                 String mensaje = sc.nextLine();
                 System.out.println("Prueba");
                 pedirDato(mensaje, minimo, maximo);
             } catch (IllegalArgumentException e) {
                 System.out.println("Parametro inválido");
-                minimo = 0;
+                isChecked = false;
             } catch (InputMismatchException e) {
                 System.out.println("Parametro inválido");
-                minimo = 0;
+                isChecked = false;
             }
-        } while (minimo == 0);
-
+        } while (isChecked == false);
     }
 }
