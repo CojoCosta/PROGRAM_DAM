@@ -4,8 +4,8 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>ejercicios</groupId>
-  <artifactId>boletin_excepciones</artifactId>
+  <groupId>excepciones_pooavanzada</groupId>
+  <artifactId>boletin_tema6_b</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 

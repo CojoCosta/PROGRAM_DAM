@@ -1,5 +1,5 @@
 
-package ejercicios;
+package excepciones_pooavanzada;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
