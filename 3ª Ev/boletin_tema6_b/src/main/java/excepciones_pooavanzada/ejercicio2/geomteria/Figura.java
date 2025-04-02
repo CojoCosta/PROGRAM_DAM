@@ -49,11 +49,12 @@ public class Figura implements InterfazUsuario {
         this.nombre = sc.nextLine();
         x = Libreria.pedirReal();
         y = Libreria.pedirReal();
-        new Figura(new Punto(x, y) ,nombre);
+        this.origen = new Punto(x, y);
     }
 
     public void mostrarDatos() {
-        System.out.println();
+        System.out.println(nombre);
+        System.out.println(origen);
     }
     // #endregion
 }
