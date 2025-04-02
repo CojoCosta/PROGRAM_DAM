@@ -65,6 +65,6 @@ public class Ejercicio1 {
                 System.out.println("");
                 frase = "";
             }
-        } while (frase == "");
+        } while (frase.equals(""));
     }
 }

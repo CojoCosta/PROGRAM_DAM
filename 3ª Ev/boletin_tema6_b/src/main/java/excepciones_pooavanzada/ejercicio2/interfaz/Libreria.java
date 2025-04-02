@@ -2,8 +2,8 @@ package excepciones_pooavanzada.ejercicio2.interfaz;
 
 import java.util.Scanner;
 
-public class Librería {
-    public int pedirEntero() throws Exception {
+public class Libreria {
+    public static int pedirEntero(){
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
         int numero = 0;
@@ -17,10 +17,11 @@ public class Librería {
                 flag = false;
             }
         } while (flag == false);
+        sc.close();
         return numero;
     }
 
-    public double pedirReal() throws Exception {
+    public static double pedirReal(){
         Scanner sc = new Scanner(System.in);
         double numero = 0;
         boolean flag = true;
@@ -34,6 +35,7 @@ public class Librería {
                 flag = false;
             }
         } while (flag == false);
+        sc.close();
         return numero;
     }
 }
