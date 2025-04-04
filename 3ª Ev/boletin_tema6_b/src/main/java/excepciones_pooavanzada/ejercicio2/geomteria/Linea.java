@@ -15,7 +15,7 @@ public class Linea extends Figura{
     @Override
     public void pedirDatos() {
         super.pedirDatos();
-        puntoFinal = new Punto(Libreria.pedirReal(), Libreria.pedirReal());
+        this.puntoFinal = new Punto(Libreria.pedirReal(), Libreria.pedirReal());
     }
 
     @Override

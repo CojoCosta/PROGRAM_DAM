@@ -1,6 +1,5 @@
 package excepciones_pooavanzada.ejercicio2.geomteria;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import excepciones_pooavanzada.ejercicio2.interfaz.InterfazUsuario;
