@@ -15,7 +15,7 @@ public class Ejercicio1 {
     public static String subCadena(String frase, int posicionInicio, int cantidadCaracteres) {
         String cadenaFinal = "";
         if (posicionInicio < 0 || posicionInicio > frase.length() || (posicionInicio + cantidadCaracteres) > frase.length()) {
-            throw new IllegalArgumentException("Has hecho algo mal");
+            throw new StringOutOfBoundsException("Has hecho algo mal, tu frase es: " + frase + ", posición inicial es: " + posicionInicio + ", y la cantidad de caracteres es: " + cantidadCaracteres);
         } else {
             for (int i = posicionInicio; i < cantidadCaracteres + posicionInicio; i++) {
                 cadenaFinal += frase.charAt(i);
@@ -32,7 +32,7 @@ public class Ejercicio1 {
      */
     public static void muestraCentrado(String frase) {
             if (frase.length() > 80) {
-                throw new InputMismatchException("El String es demasiado largo, se pasa de 80 caracteres");
+                throw new StringTooLongException();
             }
         int mitadDeAncho = 80/2;
         int largoDeCadena = frase.length()/2;

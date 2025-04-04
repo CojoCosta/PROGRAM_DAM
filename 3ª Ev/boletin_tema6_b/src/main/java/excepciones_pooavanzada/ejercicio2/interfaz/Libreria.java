@@ -28,7 +28,7 @@ public class Libreria {
         System.out.print("Escribe un numero: ");
         do {
             try {
-                numero = sc.nextInt();
+                numero = sc.nextDouble();
             } catch (IllegalArgumentException e) {
                 System.out.print("Escribe un numero: ");
                 sc.nextLine();
