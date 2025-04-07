@@ -34,6 +34,10 @@ class FrmPrincipal extends JFrame {
         boton1.setSize(0, 100);
         boton2.setSize(100, 100);
         
+        //1º POSICIÓN Y 2º TAMAÑO
+        etiqueta1.setBounds(100,100,100,100);
+
+
         setLayout(new FlowLayout());//CON FLOW SOLO POSICIÓN
         etiqueta1.setLocation(0, 0);
         etiqueta2.setLocation(100, 0);
