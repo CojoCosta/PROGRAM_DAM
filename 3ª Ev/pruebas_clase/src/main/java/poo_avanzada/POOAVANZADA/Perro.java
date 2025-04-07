@@ -1,4 +1,4 @@
-package poo_avanzada;
+package poo_avanzada.POOAVANZADA;
 
 class Perro extends Animal {
     public String raza;

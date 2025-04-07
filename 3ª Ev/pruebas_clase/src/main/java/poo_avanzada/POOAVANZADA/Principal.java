@@ -1,4 +1,4 @@
-package poo_avanzada;
+package poo_avanzada.POOAVANZADA;
 
 import java.util.ArrayList;
 

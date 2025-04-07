@@ -1,4 +1,4 @@
-package poo_avanzada;
+package poo_avanzada.POOAVANZADA;
 
 public class Mosca extends Animal {
     public Mosca() {
