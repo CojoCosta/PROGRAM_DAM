@@ -19,13 +19,22 @@ class FrmPrincipal extends JFrame {
         // label.setToolTipText("Esto es un componente JLabel");
         // // Incluímos la JLabel en la colección de componentes de la ventana
         // this.add(label);
-
-        setLayout(new FlowLayout());
         JLabel etiqueta1 = new JLabel("Etiqueta Uno");
         JLabel etiqueta2 = new JLabel("Etiqueta Dos");
         JButton boton1 = new JButton("Aceptar");
         JButton boton2 = new JButton("Cancelar");
 
+        setLayout(null); //Con null TAMAÑO Y POSICIÓN
+        etiqueta1.setLocation(0, 0);
+        etiqueta2.setLocation(100, 0);
+        boton1.setLocation(0, 100);
+        boton2.setLocation(100, 100);
+        etiqueta1.setSize(0, 0);
+        etiqueta2.setSize(100, 0);
+        boton1.setSize(0, 100);
+        boton2.setSize(100, 100);
+        
+        setLayout(new FlowLayout());//CON FLOW SOLO POSICIÓN
         etiqueta1.setLocation(0, 0);
         etiqueta2.setLocation(100, 0);
         boton1.setLocation(0, 100);
