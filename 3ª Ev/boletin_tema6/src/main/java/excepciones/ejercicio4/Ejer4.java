@@ -59,6 +59,6 @@ public class Ejer4 {
                 System.out.println("");
                 frase = "";
             }
-        } while (frase == "");
+        } while (frase.equals(""));
     }
 }
