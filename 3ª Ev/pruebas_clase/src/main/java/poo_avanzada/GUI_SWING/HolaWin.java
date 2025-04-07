@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class HolaWin{
     public static void main(String[] args){
-
+        //ventana emergente (como si fuera un window.alert)
         JOptionPane.showMessageDialog(null,
                 "Welcome to the Java World",//mensaje 
                 "Usando Swing",//titulo
