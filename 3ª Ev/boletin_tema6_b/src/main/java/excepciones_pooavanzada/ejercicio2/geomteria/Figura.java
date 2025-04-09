@@ -30,8 +30,8 @@ public class Figura implements InterfazUsuario {
 
     // #region CONSTRUCTORES
     public Figura(Punto punto, String nombre) {
-        setOrigen(punto);
         setNombre(nombre);
+        setOrigen(punto);
     }
 
     public Figura() {

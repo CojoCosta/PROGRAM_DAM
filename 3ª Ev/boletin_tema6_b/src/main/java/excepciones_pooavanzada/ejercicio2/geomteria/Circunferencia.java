@@ -35,5 +35,4 @@ public class Circunferencia extends Figura{
         super.mostrarDatos();
         System.out.println(this.radio);
     }
-    
 }
