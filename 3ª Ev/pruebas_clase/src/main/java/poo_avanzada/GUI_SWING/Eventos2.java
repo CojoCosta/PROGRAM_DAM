@@ -39,6 +39,6 @@ public class Eventos2 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent evento) {
-        System.err.println("Pulsado" + evento.getSource());
+        System.err.println("Pulsado: " + evento.getActionCommand());
     }
 }
