@@ -18,13 +18,13 @@ class FrmPrincipal extends JFrame {
     // Inicializamos la interfaz de usuario en el constructor
     public FrmPrincipal() {
 
-        // // Llamando a super podemos inicializar el título de la ventana
-        // super("The Sultans of Swing");
-        // // Creamos una “Etiqueta de texto” y especificamos su toolTip
-        // JLabel label = new JLabel("La aplicación perfecta");
-        // label.setToolTipText("Esto es un componente JLabel");
-        // // Incluímos la JLabel en la colección de componentes de la ventana
-        // this.add(label);
+        // Llamando a super podemos inicializar el título de la ventana
+        super("The Sultans of Swing");
+        // Creamos una “Etiqueta de texto” y especificamos su toolTip
+        JLabel label = new JLabel("La aplicación perfecta");
+        label.setToolTipText("Esto es un componente JLabel");
+        // Incluímos la JLabel en la colección de componentes de la ventana
+        this.add(label);
         JLabel etiqueta1 = new JLabel("Etiqueta Uno");
         etiqueta1.setLocation(0, 0);
         etiqueta1.setSize(100, 20);
@@ -48,7 +48,7 @@ class FrmPrincipal extends JFrame {
         
         setLayout(null); //Con null TAMAÑO Y POSICIÓN
         
-        //1º POSICIÓN Y 2º TAMAÑO
+        // 1º POSICIÓN Y 2º TAMAÑO
         etiqueta1.setBounds(100,100,100,100);
         
         
@@ -58,12 +58,12 @@ class FrmPrincipal extends JFrame {
         boton1.setLocation(0, 100);
         boton2.setLocation(100, 100);
 
-        //.add sin colocar se sobre escriben uno encima del otro y solo se ve el ultimo
-        // this.add(etiqueta1);
-        // this.add(etiqueta2);
-        // this.add(boton1);
-        // this.add(boton2);
+        // .add sin colocar se sobre escriben uno encima del otro y solo se ve el ultimo
+        this.add(etiqueta1);
+        this.add(etiqueta2);
+        this.add(boton1);
+        this.add(boton2);
 
-        //.add con distribución para que se vean todos
+        // .add con distribución para que se vean todos
     }
 }
