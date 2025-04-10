@@ -39,6 +39,30 @@ public class Eventos2 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent evento) {
-        System.err.println("Pulsado: " + evento.getActionCommand());
+        // Comprobador de funcionamiento
+        System.err.println("Pulsado: " + evento.getModifiers() + " " + evento.getActionCommand());
+        System.err.println(Integer.toBinaryString(evento.getModifiers()));
+        int salto = 1;
+        
+        // En el título del formulario ponemos el componente afectado
+        this.setTitle(evento.getActionCommand());
+        
+        // Si se está pulsando SHIFT incrementa/decrementa en 10
+        if ((evento.getModifiers() & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK) {
+            salto = 10;
+        }
+
+        // Si se ha pulsado el botón incremento...
+        if (evento.getSource() == btnIncremento) {
+            contador += salto;
+        }
+
+        // Si se ha pulsado el botón decremento...
+        if (evento.getSource() == btnDecremento) {
+            contador -= salto;
+        }
+        
+        // Actualizamos la etiqueta al nuevo valor
+        etiqueta1.setText(String.format("%10d", contador));
     }
 }
