@@ -21,14 +21,14 @@ class FrmPrincipal extends JFrame {
         // Llamando a super podemos inicializar el título de la ventana
         super("The Sultans of Swing");
         // Creamos una “Etiqueta de texto” y especificamos su toolTip
-        JLabel label = new JLabel("La aplicación perfecta");
+        JLabel label = new JLabel("La aplicación perfecta");//Asi no declaramos
         label.setToolTipText("Esto es un componente JLabel");
         // Incluímos la JLabel en la colección de componentes de la ventana
         this.add(label);
         JLabel etiqueta1 = new JLabel("Etiqueta Uno");
         etiqueta1.setLocation(0, 0);
+        // .add con distribución para que se vean todos
         etiqueta1.setSize(100, 20);
-        // etiqueta1.setBounds(0,0, 10, 20);//lo de arriba simplificado
         this.add(etiqueta1, BorderLayout.NORTH);
         
         JLabel etiqueta2 = new JLabel("Etiqueta Dos");
@@ -49,6 +49,7 @@ class FrmPrincipal extends JFrame {
         setLayout(null); //Con null TAMAÑO Y POSICIÓN
         
         // 1º POSICIÓN Y 2º TAMAÑO
+        // etiqueta1.setBounds(0,0, 10, 20);//lo de arriba simplificado
         etiqueta1.setBounds(100,100,100,100);
         
         
@@ -63,7 +64,6 @@ class FrmPrincipal extends JFrame {
         this.add(etiqueta2);
         this.add(boton1);
         this.add(boton2);
-
-        // .add con distribución para que se vean todos
+        
     }
 }
