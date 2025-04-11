@@ -16,6 +16,5 @@ public class PruebaGUI2 {
         // frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame2.setVisible(true);
         CajasTexto txt = new CajasTexto();
-        
     }
 }

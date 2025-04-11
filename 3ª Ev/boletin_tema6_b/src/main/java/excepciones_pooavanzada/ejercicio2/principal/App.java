@@ -90,22 +90,48 @@ public class App {
                     }
                     break;
 
-                case 3: // TODO falta por acabar
+                case 3:
                     System.out.printf("Que elemento de la colección de %d elementos quieres ver sus datos: ",
                             figuras.size());
                     int indice = sc.nextInt();
-                    System.out.println(figuras.get(indice - 1).getNombre());
+                    for (int i = 0; i < figuras.size(); i++) {
+                        if (i == (indice - 1)) {
+                            System.out.printf("%d: Nombre: %s\n", i + 1, figuras.get(i).getNombre());
+                        } else if (figuras.get(i).equals("CIRCUNFERENCIA")) {
+                            System.out.printf("%d: Nombre: %s ", i + 1, figuras.get(i).getNombre());
+                            System.out.printf("y radio: %.2f\n", (((Circunferencia) figuras.get(i)).getRadio()));
+                        }
+                    }
                     break;
 
                 case 4: // TODO hacer
+                    do {
+                        System.out.println("1. Linea");
+                        System.out.println("2. Poligono(Triangulo y cuadrado)");
+                        System.out.println("3. Circunfererencia");
+                        System.out.print("¿Que elemento quiere eliminar? ");
+                        switch (option2) {
+                            case 1:
+                            
+                                break;
+                            case 2:
 
+                                break;
+                            case 3:
+
+                                break;
+
+                            default:
+                                System.out.println("Elija una opción del 1 al 4");
+                                break;
+                        }
+                    } while (option2 < 1 || option2 > 3);
                     break;
-                    
+
                 case 5:
                     System.out.println("Gracias por usar este programa");
                     break;
             }
-
         } while (option != 5);
         sc.close();
     }

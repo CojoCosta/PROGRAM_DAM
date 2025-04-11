@@ -1,7 +1,5 @@
 package poo_avanzada.GUI_SWING;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
 
 public class HolaWin{

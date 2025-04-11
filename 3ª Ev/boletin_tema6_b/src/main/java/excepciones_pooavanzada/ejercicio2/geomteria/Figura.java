@@ -50,6 +50,7 @@ public class Figura implements InterfazUsuario {
         x = Libreria.pedirReal();
         y = Libreria.pedirReal();
         this.origen = new Punto(x, y);
+        sc.close();
     }
 
     @Override
