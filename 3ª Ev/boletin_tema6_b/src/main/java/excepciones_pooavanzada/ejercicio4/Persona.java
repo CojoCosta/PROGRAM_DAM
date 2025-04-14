@@ -57,7 +57,7 @@ public abstract class Persona {
         setNombre(nombre);
         setApellidos(apellidos);
         setEdad(edad);
-        setDni(dni);
+        setDni(dni); //TODO preguntar porque falla
     }
 
     //#endregion
