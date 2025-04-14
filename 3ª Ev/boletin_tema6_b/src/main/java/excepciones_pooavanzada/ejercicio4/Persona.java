@@ -5,6 +5,7 @@ public abstract class Persona {
     private String apellidos;
     private int edad;
     private String dni;
+    private static String LetrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 
     //#region SET Y GET
     public void setNombre(String nombre) {
@@ -31,8 +32,19 @@ public abstract class Persona {
         return edad;
     }
     
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setDni(int numeros, char letra) {
+        String numerosString = String.format("%8d", numeros);
+        if (!numerosString.matches("\\d{8}"))  { //TODO preguntar a Curro si puedo uitlizar esta funcion
+            throw new DNIException("El numero del DNI debe tener 8 cifras");
+        }
+        letra = Character.toUpperCase(letra);
+
+        char letraFinal = LetrasDNI.charAt(numeros%23);
+
+        if (letra != letraFinal) {
+            throw new DNIException("Esa letra no corresponde en el numero del DNI");
+        }
+        this.dni = numerosString + letra;
     }
     
     public String getDni() {
