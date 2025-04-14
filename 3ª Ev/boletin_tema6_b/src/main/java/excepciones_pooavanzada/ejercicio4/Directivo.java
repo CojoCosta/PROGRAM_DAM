@@ -2,7 +2,7 @@ package excepciones_pooavanzada.ejercicio4;
 
 
 public class Directivo extends Persona{
-   
+    
     private String departamento;
     private double porcentajeBeneficios;
 

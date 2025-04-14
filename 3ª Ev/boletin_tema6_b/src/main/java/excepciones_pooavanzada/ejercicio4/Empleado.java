@@ -43,4 +43,10 @@ public class Empleado extends Persona{
         return (getSalarioAnual() * getIrpf() / 100);
     }
     // #endregion
+
+    //#region MÉTODO ABSTRACTO
+    
+
+
+    //#endregion
 }

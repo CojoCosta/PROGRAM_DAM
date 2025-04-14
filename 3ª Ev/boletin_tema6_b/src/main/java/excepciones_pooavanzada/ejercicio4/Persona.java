@@ -59,6 +59,11 @@ public abstract class Persona {
         setEdad(edad);
         setDni(dni);
     }
+
     //#endregion
+    @Override
+    public String toString() {
+        return nombre + apellidos;
+    }
     
 }
