@@ -91,9 +91,20 @@ public class App {
                     break;
 
                 case 3:
-                    System.out.printf("Que elemento de la colección de %d elementos quieres ver sus datos: ",
-                            figuras.size());
-                    int indice = sc.nextInt();
+                    int indice = 0;
+                    System.out.printf("Que elemento de la colección de %d elementos quieres ver sus datos: ", figuras.size());
+                    try {
+                        indice = sc.nextInt();
+                        sc.nextLine();
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Parametro inválido");
+                        sc.nextLine();
+                        option2 = 5;
+                    } catch (InputMismatchException e) {
+                        System.out.println("Parametro inválido");
+                        sc.nextLine();
+                        option2 = 5;
+                    }
                     for (int i = 0; i < figuras.size(); i++) {
                         if (i == (indice - 1)) {
                             System.out.printf("%d: Nombre: %s\n", i + 1, figuras.get(i).getNombre());
@@ -109,16 +120,29 @@ public class App {
                         System.out.println("1. Linea");
                         System.out.println("2. Poligono(Triangulo y cuadrado)");
                         System.out.println("3. Circunfererencia");
-                        System.out.print("¿Que elemento quiere eliminar? ");
+                        System.out.print("¿Que elementos quieres eliminar? ");
                         switch (option2) {
                             case 1:
-                            
+                                for (int i = 0; i < figuras.size(); i++) {
+                                    if (figuras.get(i).equals("LINEA")) {
+                                        figuras.remove(i);
+                                    }
+                                }
                                 break;
-                            case 2:
-
+                                case 2:
+                                for (int i = 0; i < figuras.size(); i++) {
+                                    if (figuras.get(i).equals("TRIANGULO") || figuras.get(i).equals("CUADRADO")) {
+                                        figuras.remove(i);
+                                    }
+                                }
+                                
                                 break;
-                            case 3:
-
+                                case 3:
+                                for (int i = 0; i < figuras.size(); i++) {
+                                    if (figuras.get(i).equals("CIRCUNFERENCIA")) {
+                                        figuras.remove(i);
+                                    }
+                                }
                                 break;
 
                             default:

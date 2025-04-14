@@ -1,6 +1,5 @@
 package excepciones_pooavanzada.ejercicio1;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ejercicio1 {
@@ -60,5 +59,6 @@ public class Ejercicio1 {
                 frase = "";
             }
         } while (frase.equals(""));
+        sc.close();
     }
 }
