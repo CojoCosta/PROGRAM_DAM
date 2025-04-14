@@ -115,7 +115,7 @@ public class App {
                     }
                     break;
 
-                case 4: // TODO hacer
+                case 4: 
                     do {
                         System.out.println("1. Linea");
                         System.out.println("2. Poligono(Triangulo y cuadrado)");
