@@ -9,6 +9,7 @@ import excepciones_pooavanzada.ejercicio2.geomteria.Figura;
 import excepciones_pooavanzada.ejercicio2.geomteria.Linea;
 import excepciones_pooavanzada.ejercicio2.geomteria.Poligono;
 import excepciones_pooavanzada.ejercicio2.geomteria.Punto;
+import excepciones_pooavanzada.ejercicio2.interfaz.Libreria;
 
 public class App {
     public static void main(String[] args) {
@@ -24,18 +25,9 @@ public class App {
             System.out.println("3. Mostrar los datos de un elemento de la colección.");
             System.out.println("4. Borrar elementos de un tipo.");
             System.out.println("5. Salir.");
-            try {
-                option = sc.nextInt();
-                sc.nextLine();
-            } catch (IllegalArgumentException e) {
-                System.out.println("Parametro inválido");
-                sc.nextLine();
-                option = 6;
-            } catch (InputMismatchException e) {
-                System.out.println("Parametro inválido");
-                sc.nextLine();
-                option = 6;
-            }
+
+            option = Libreria.pedirEntero();
+
             switch (option) {
                 case 1:
                     do {
@@ -44,18 +36,9 @@ public class App {
                         System.out.println("3. Cuadrado");
                         System.out.println("4. Circunfererencia");
                         System.out.print("¿Que elemento quiere añadir? ");
-                        try {
-                            option2 = sc.nextInt();
-                            sc.nextLine();
-                        } catch (IllegalArgumentException e) {
-                            System.out.println("Parametro inválido");
-                            sc.nextLine();
-                            option2 = 5;
-                        } catch (InputMismatchException e) {
-                            System.out.println("Parametro inválido");
-                            sc.nextLine();
-                            option2 = 5;
-                        }
+
+                        option2 = Libreria.pedirEntero();
+
                         switch (option2) {
                             case 1:
                                 figuras.add(new Linea(punto, punto2));
@@ -80,11 +63,9 @@ public class App {
                         System.out.println("No hay datos que mostrar.");
                     } else {
                         for (int i = 0; i < figuras.size(); i++) {
-                            if (figuras.get(i).getNombre().equals("CIRCUNFERENCIA")) {
-                                System.out.printf("%d: Nombre: %s ", i + 1, figuras.get(i).getNombre());
+                            System.out.printf("%d: Nombre: %s \n", i + 1, figuras.get(i).getNombre()); 
+                            if (figuras.get(i).getClass() == Circunferencia.class) {
                                 System.out.printf("y radio: %.2f\n", (((Circunferencia) figuras.get(i)).getRadio()));
-                            } else {
-                                System.out.printf("%d: Nombre: %s\n", i + 1, figuras.get(i).getNombre());
                             }
                         }
                     }
@@ -92,55 +73,44 @@ public class App {
 
                 case 3:
                     int indice = 0;
-                    System.out.printf("Que elemento de la colección de %d elementos quieres ver sus datos: ", figuras.size());
-                    try {
-                        indice = sc.nextInt();
-                        sc.nextLine();
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Parametro inválido");
-                        sc.nextLine();
-                        option2 = 5;
-                    } catch (InputMismatchException e) {
-                        System.out.println("Parametro inválido");
-                        sc.nextLine();
-                        option2 = 5;
-                    }
-                    for (int i = 0; i < figuras.size(); i++) {
-                        if (i == (indice - 1)) {
-                            System.out.printf("%d: Nombre: %s\n", i + 1, figuras.get(i).getNombre());
-                        } else if (figuras.get(i).equals("CIRCUNFERENCIA")) {
-                            System.out.printf("%d: Nombre: %s ", i + 1, figuras.get(i).getNombre());
-                            System.out.printf("y radio: %.2f\n", (((Circunferencia) figuras.get(i)).getRadio()));
-                        }
-                    }
+                    System.out.printf("Que elemento de la colección de %d elementos quieres ver sus datos: ",
+                            figuras.size());
+                    indice = Libreria.pedirEntero();
+                    figuras.get(indice - 1).mostrarDatos();
+
                     break;
 
-                case 4: 
+                case 4:
                     do {
                         System.out.println("1. Linea");
                         System.out.println("2. Poligono(Triangulo y cuadrado)");
                         System.out.println("3. Circunfererencia");
                         System.out.print("¿Que elementos quieres eliminar? ");
+                        option2 = Libreria.pedirEntero();
                         switch (option2) {
+
                             case 1:
                                 for (int i = 0; i < figuras.size(); i++) {
-                                    if (figuras.get(i).equals("LINEA")) {
+                                    if (figuras.get(i).getClass() == Linea.class) {                     
                                         figuras.remove(i);
+                                        i--;
                                     }
                                 }
                                 break;
-                                case 2:
+                            case 2:
                                 for (int i = 0; i < figuras.size(); i++) {
-                                    if (figuras.get(i).equals("TRIANGULO") || figuras.get(i).equals("CUADRADO")) {
+                                    if (figuras.get(i).getClass() == Poligono.class) {
                                         figuras.remove(i);
+                                        i--;
                                     }
                                 }
-                                
+
                                 break;
-                                case 3:
+                            case 3:
                                 for (int i = 0; i < figuras.size(); i++) {
-                                    if (figuras.get(i).equals("CIRCUNFERENCIA")) {
+                                    if (figuras.get(i).getClass() == Circunferencia.class) {
                                         figuras.remove(i);
+                                        i--;
                                     }
                                 }
                                 break;

@@ -17,7 +17,7 @@ public class Libreria {
                 flag = false;
             }
         } while (flag == false);
-        sc.close();
+        
         return numero;
     }
 
@@ -35,7 +35,7 @@ public class Libreria {
                 flag = false;
             }
         } while (flag == false);
-        sc.close();
+        
         return numero;
     }
 }

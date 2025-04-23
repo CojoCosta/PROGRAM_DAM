@@ -14,10 +14,13 @@ public class Cadena {
             }                
         }
     }
-    //TODO ni puta idea las sobre escrituras
     @Override
     public String toString() {
-        return this.toString();
+        String cadenaCompleta = "";
+        for (int i = 0; i < cadena.size(); i++) {
+            cadenaCompleta += cadena.get(i);
+        }
+        return cadenaCompleta;
     } 
     
     @Override 

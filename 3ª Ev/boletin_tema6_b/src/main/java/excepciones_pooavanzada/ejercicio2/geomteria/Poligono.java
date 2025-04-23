@@ -6,9 +6,8 @@ public class Poligono extends Figura{
     public Punto[] puntos;
 
     public Poligono(String nombre, Punto origen, int tamañoDelArray){
+        super(origen, nombre);
         puntos = new Punto[tamañoDelArray];
-        setNombre(nombre);
-        setOrigen(new Punto(0, 0));
         for (int i = 0; i < puntos.length; i++) {
             puntos[i] = new Punto(Math.random(), Math.random());
         }
@@ -16,9 +15,9 @@ public class Poligono extends Figura{
 
     public Poligono(){
         this("Triangulo", new Punto(0,0),  3);
-        new Punto(0, 0);
-        new Punto(1, 1);
-        new Punto(1, 0);
+        puntos[0] = new Punto(0, 0);
+        puntos[1] = new Punto(1, 1);
+        puntos[2] = new Punto(1, 0);
     }
 
     @Override
