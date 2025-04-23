@@ -116,7 +116,7 @@ public class App {
                                 break;
 
                             default:
-                                System.out.println("Elija una opción del 1 al 4");
+                                System.out.println("Elija una opción del 1 al 3");
                                 break;
                         }
                     } while (option2 < 1 || option2 > 3);
