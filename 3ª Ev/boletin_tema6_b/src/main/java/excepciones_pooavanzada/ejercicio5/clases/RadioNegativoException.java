@@ -1,4 +1,4 @@
-package excepciones_pooavanzada.ejercicio5;
+package excepciones_pooavanzada.ejercicio5.clases;
 
 import java.util.InputMismatchException;
 
