@@ -44,9 +44,5 @@ public class Empleado extends Persona{
     }
     // #endregion
 
-    //#region MÉTODO ABSTRACTO
-    
 
-
-    //#endregion
 }

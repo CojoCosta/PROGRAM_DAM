@@ -5,12 +5,11 @@ import java.util.ArrayList;
 public class Cadena {
     private ArrayList<Character> cadena;
 
-    public void setCadena(String cadena) {
+    public void setCadena(String cadena) {//TODO trim sin trim
         for (int i = 0; i < cadena.length(); i++) {
-            cadena.charAt(i);
+           
             if (cadena.charAt(i) != ' ') {
                 this.cadena.add(cadena.charAt(i));
-            } else{
             }                
         }
     }
@@ -24,7 +23,7 @@ public class Cadena {
     } 
     
     @Override 
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj) {//TODO revisar
         if (obj.getClass()==char[].class) {
             char[] arrayDelObj = (char[]) obj;
             if (arrayDelObj.length == cadena.size()) {
@@ -37,7 +36,7 @@ public class Cadena {
                 }
             }
             return this.equals(obj);
-        }else if (obj.getClass() == cadena.getClass()) {
+        }else if (obj.getClass() == Cadena.class) {
             ArrayList<Character> cadena2 = (ArrayList<Character>) obj;
             if (cadena2.size() == cadena.size()) {
                 for (int i = 0; i < cadena.size(); i++) {

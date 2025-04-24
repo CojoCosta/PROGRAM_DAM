@@ -33,19 +33,25 @@ public abstract class Persona {
     }
 
     public void setDni(String dni) {
-        int numeros;
+        int numeros = 0;
         String numerosString = dni.substring(0, 8);
-        if (dni.length() != 9  || numerosString.length() != 8) {
-            throw new DNIException("El numero del DNI debe tener 8 cifras");
+        if (dni.length() != 9 && dni.length() != 10 || numerosString.length() != 8) {
+            throw new DNIException("DNI no valido.");
         } else {
             for (int i = 0; i < numerosString.length(); i++) {
-                Integer.parseInt(String.format("%c",numerosString.charAt(i)));
+                try {
+                    numeros = Integer.parseInt(numerosString);
+                } catch (DNIException e) {
+                    System.out.println("DNI no valido.");
+                }
             }
-            numeros = Integer.parseInt(numerosString);
         }
         String letra = dni.substring(8);
+        if (letra.equals("-")) {
+            letra = dni.replace('-', dni.charAt(9));
+        }
 
-        char letra2 = letra.charAt(1);
+        char letra2 = letra.charAt(0);
         letra2 = Character.toUpperCase(letra2);
 
         char letraFinal = LetrasDNI.charAt(numeros % 23);
