@@ -7,7 +7,7 @@ public abstract class Persona {
     private String dni;
     private static String LetrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-    //#region SET Y GET
+    // #region SET Y GET
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -15,15 +15,15 @@ public abstract class Persona {
     public String getNombre() {
         return nombre;
     }
-    
+
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    
+
     public String getApellidos() {
         return apellidos;
     }
-    
+
     public void setEdad(int edad) {
         this.edad = edad;
     }
@@ -31,39 +31,48 @@ public abstract class Persona {
     public int getEdad() {
         return edad;
     }
-    
-    public void setDni(int numeros, char letra) {
-        String numerosString = String.format("%8d", numeros);
-        if (!numerosString.matches("\\d{8}"))  { //TODO preguntar a Curro si puedo uitlizar esta funcion
+
+    public void setDni(String dni) {
+        int numeros;
+        String numerosString = dni.substring(0, 8);
+        if (dni.length() != 9  || numerosString.length() != 8) {
             throw new DNIException("El numero del DNI debe tener 8 cifras");
+        } else {
+            for (int i = 0; i < numerosString.length(); i++) {
+                Integer.parseInt(String.format("%c",numerosString.charAt(i)));
+            }
+            numeros = Integer.parseInt(numerosString);
         }
-        letra = Character.toUpperCase(letra);
+        String letra = dni.substring(8);
 
-        char letraFinal = LetrasDNI.charAt(numeros%23);
+        char letra2 = letra.charAt(1);
+        letra2 = Character.toUpperCase(letra2);
 
-        if (letra != letraFinal) {
+        char letraFinal = LetrasDNI.charAt(numeros % 23);
+
+        if (letra2 != letraFinal) {
             throw new DNIException("Esa letra no corresponde en el numero del DNI");
         }
         this.dni = numerosString + letra;
     }
-    
+
     public String getDni() {
         return dni;
     }
-    //#endregion
+    // #endregion
 
-    //#region  CONSTRUCTORES
+    // #region CONSTRUCTORES
     public Persona(String nombre, String apellidos, int edad, String dni) {
         setNombre(nombre);
         setApellidos(apellidos);
         setEdad(edad);
-        setDni(dni); //TODO preguntar porque falla
+        setDni(dni);
     }
 
-    //#endregion
+    // #endregion
     @Override
     public String toString() {
         return nombre + apellidos;
     }
-    
+
 }
