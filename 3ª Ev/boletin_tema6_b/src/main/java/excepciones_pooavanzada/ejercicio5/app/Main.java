@@ -10,6 +10,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ArrayList<Astro> satelites = new ArrayList<Astro>();
         int option = 0;
+        int option2 = 0;
 
         do {
             System.out.println("1. Añadir planeta."); 
@@ -25,7 +26,7 @@ public class Main {
                 case 1://: Pregunta si es gaseoso y pide el nombre y radio. También pregunta cantidad de lunas y se introducirán sus nombres y radios.
                     do {
                         
-                    } while (condition);
+                    } while (option2 != 0);
 
                     break;
 
