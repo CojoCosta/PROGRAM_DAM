@@ -1,10 +1,14 @@
 package ejercicios_swing.ejercicio4;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class FormularioValidacion extends JFrame{
+public class FormularioValidacion extends JFrame implements ActionListener{
     private JTextField txfNombre;
     private JTextField txfEdad;
     private JTextField txfDireccion;
@@ -30,24 +34,47 @@ public class FormularioValidacion extends JFrame{
         txfDireccion.setLocation(240, 0);
         this.add(txfDireccion);
         
-        validacionDeDatos(txfNombre, txfEdad, txfDireccion);
-        btnGuardar = new JButton();
+        btnGuardar = new JButton("Guardar");
         btnGuardar.setSize(100, 30);
         btnGuardar.setLocation(0, 40);
         this.add(btnGuardar);
+        btnGuardar.addActionListener(this);
         
         
-        btnCargar = new JButton();
+        btnCargar = new JButton("Cargar");
         btnCargar.setSize(100, 30);
         btnCargar.setLocation(120, 40);
         this.add(btnCargar);
+        btnCargar.addActionListener(this);
     }
 
-    public boolean validacionDeDatos(JTextField nombre, JTextField edad, JTextField direccion){
-        if (nombre.isEmpty()) {
-            
+    public boolean validacionDeDatos(String nom, String ed, String dir){
+        String nombre = nom.trim();
+        String edad = ed.trim();
+        String direccion = dir.trim();
+        int edadNumero = 0;
+        try {
+            edadNumero = Integer.parseInt(edad);
+        } catch (NumberFormatException e) {
+            System.out.println("Pon numeros gilipollas");
         }
-        return true;
+
+        if (nombre.isEmpty() ||edad.isEmpty() || direccion.isEmpty() || edadNumero <= 0){
+            return false;
+        }else {            
+            return true;
+        }
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (validacionDeDatos(txfNombre.getText(), txfEdad.getText(), txfDireccion.getText()) == false){
+            JOptionPane.showConfirmDialog(this, "Datos inválidos");
+        } else{
+
+        }
+
+        }
     
+
 }
