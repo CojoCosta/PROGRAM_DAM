@@ -30,6 +30,7 @@ public class FormularioValidacion extends JFrame{
         txfDireccion.setLocation(240, 0);
         this.add(txfDireccion);
         
+        validacionDeDatos(txfNombre, txfEdad, txfDireccion);
         btnGuardar = new JButton();
         btnGuardar.setSize(100, 30);
         btnGuardar.setLocation(0, 40);
@@ -42,8 +43,10 @@ public class FormularioValidacion extends JFrame{
         this.add(btnCargar);
     }
 
-    public boolean validacionDeDatos(String nombre, String edad, String direccion){
-        
+    public boolean validacionDeDatos(JTextField nombre, JTextField edad, JTextField direccion){
+        if (nombre.isEmpty()) {
+            
+        }
         return true;
     }
     
