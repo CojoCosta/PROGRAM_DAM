@@ -36,10 +36,9 @@ public class Dado extends JFrame implements ActionListener {
     public int numeroAleatorio(String limite) {
         int numero = 0;
         try {
-            numero = Integer.parseInt(limite);
-        } catch (IllegalArgumentException e) {
-        } catch (InputMismatchException e){
-        }
+            numero = Integer.parseInt(limite.trim());
+        } catch (NumberFormatException e) {
+        }  
         if (numero < 1) {
             return (int) (Math.random() * 6) + 1;
         } else {

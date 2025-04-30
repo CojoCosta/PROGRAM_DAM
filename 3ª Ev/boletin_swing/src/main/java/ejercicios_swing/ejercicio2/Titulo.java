@@ -2,6 +2,8 @@ package ejercicios_swing.ejercicio2;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -9,12 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class Titulo extends JFrame implements ActionListener {
+public class Titulo extends JFrame implements ActionListener, ItemListener {
     private JTextField texto;
     private JButton boton;
     private JOptionPane preguntaConfirmacion;
-    private JCheckBox alReves;
-    private JCheckBox habilitador;
+    private JCheckBox alRevesCheck;
+    private JCheckBox habilitadorCheck;
 
     public Titulo() {
         this.setTitle("Tituloo");
@@ -29,11 +31,13 @@ public class Titulo extends JFrame implements ActionListener {
 
         preguntaConfirmacion = new JOptionPane();
 
-        alReves = new JCheckBox("Dar la vuelta");
-        this.add(alReves);
+        alRevesCheck = new JCheckBox("Dar la vuelta");
+        this.add(alRevesCheck);
 
-        habilitador = new JCheckBox("Habilita el TextField");
-        this.add(habilitador);
+        habilitadorCheck = new JCheckBox("Habilita el TextField");
+        this.add(habilitadorCheck);
+        habilitadorCheck.setSelected(true);
+        habilitadorCheck.addItemListener(this);
     }
 
     @Override
@@ -42,12 +46,20 @@ public class Titulo extends JFrame implements ActionListener {
                 String.format("¿Quieres poner el título \"%s\"?", texto.getText())) == JOptionPane.OK_OPTION) {
             this.setTitle(texto.getText());
         }
-        if (alReves.isSelected()) {
+        if (alRevesCheck.isSelected()) {
             String aux = "";
             for (int i = texto.getText().length() - 1; i >= 0; i--) {
                 aux += texto.getText().charAt(i);
             }
             this.setTitle(aux);
         }
+
     }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {//en 1 linea sin if
+        texto.setEnabled(habilitadorCheck.isSelected());
+        
+    }
+
 }
