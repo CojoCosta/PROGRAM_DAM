@@ -71,7 +71,7 @@ public class FormularioValidacion extends JFrame implements ActionListener{
         if (validacionDeDatos(txfNombre.getText(), txfEdad.getText(), txfDireccion.getText()) == false){
             JOptionPane.showConfirmDialog(this, "Datos inválidos");
         } else{
-
+            
         }
 
         }
