@@ -134,7 +134,7 @@ public class FormularioValidacion extends JFrame implements ActionListener {
                 String [] lista = escanearArchivo();
                 if (lista.length != 3) {
                     throw new FileNotFoundException();
-                } else if (txfNombre.getText().equals("") || txfEdad.getText().equals("") || txfDireccion.getText().equals("")) {
+                } else if (txfNombre.getText().trim().equals("") || txfEdad.getText().trim().equals("") || txfDireccion.getText().trim().equals("")) {
                     txfNombre.setText(lista[0]);
                     txfEdad.setText(lista[1]);
                     txfDireccion.setText(lista[2]);
