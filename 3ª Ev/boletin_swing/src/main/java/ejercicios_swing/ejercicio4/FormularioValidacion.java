@@ -130,13 +130,17 @@ public class FormularioValidacion extends JFrame implements ActionListener {
         
         if (e.getSource() == btnCargar){
             try {
-                int respuesta = 0;
+                int respuesta = 1;
                 String [] lista = escanearArchivo();
                 if (lista.length != 3) {
                     throw new FileNotFoundException();
-                } else if (txfNombre.getText() != "" || txfEdad.getText() != "" || txfDireccion.getText() != "") {
+                } else if (txfNombre.getText().equals("") || txfEdad.getText().equals("") || txfDireccion.getText().equals("")) {
+                    txfNombre.setText(lista[0]);
+                    txfEdad.setText(lista[1]);
+                    txfDireccion.setText(lista[2]);
+                } else {
                     respuesta = JOptionPane.showConfirmDialog(this, "Desea borrar los datos anteriores¿?", "ALERTA!", JOptionPane.YES_NO_OPTION);
-                } 
+                }
                 if (respuesta == JOptionPane.YES_OPTION) {
                     txfNombre.setText(lista[0]);
                     txfEdad.setText(lista[1]);
