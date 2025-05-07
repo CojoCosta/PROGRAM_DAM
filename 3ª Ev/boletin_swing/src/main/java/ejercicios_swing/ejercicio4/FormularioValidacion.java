@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-// TODO Si hay datos preguntar antes de cargar. Comprobar arcvhivo corrupto. Cerrar archivos(Hecho)
+// TODO Si hay datos preguntar antes de cargar.  
 
 public class FormularioValidacion extends JFrame implements ActionListener {
     private JLabel etiquetaNombre;
@@ -134,15 +134,13 @@ public class FormularioValidacion extends JFrame implements ActionListener {
                 String [] lista = escanearArchivo();
                 if (lista.length != 3) {
                     throw new FileNotFoundException();
-                }
-                if (lista.length == 3 && txfNombre.getText() != "" || txfEdad.getText() != "" || txfDireccion.getText() != "") {
+                } else if (txfNombre.getText() != "" || txfEdad.getText() != "" || txfDireccion.getText() != "") {
                     respuesta = JOptionPane.showConfirmDialog(this, "Desea borrar los datos anteriores¿?", "ALERTA!", JOptionPane.YES_NO_OPTION);
                 } 
-                if (respuesta == 0) {
-
-                    txfNombre.setText(lista[0]);                                                                                                                                    
-                    txfEdad.setText(lista[1]);                                                                                                                                    
-                    txfDireccion.setText(lista[2]);                                                                                                                                   
+                if (respuesta == JOptionPane.YES_OPTION) {
+                    txfNombre.setText(lista[0]);
+                    txfEdad.setText(lista[1]);
+                    txfDireccion.setText(lista[2]);
                 }
             } catch (FileNotFoundException e1) {
             }
