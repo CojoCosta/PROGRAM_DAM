@@ -14,8 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+// TODO Si hay datos preguntar antes de cargar. Comprobar arcvhivo corrupto. Cerrar archivos(Hecho)
+
 public class FormularioValidacion extends JFrame implements ActionListener {
     private JLabel etiquetaNombre;
+
     private JTextField txfNombre;
     private JLabel etiquetaEdad;
     private JTextField txfEdad;
@@ -79,7 +82,7 @@ public class FormularioValidacion extends JFrame implements ActionListener {
         try {
             edadNumero = Integer.parseInt(edad);
         } catch (NumberFormatException e) {
-            System.out.println("Pon numeros gilipollas");
+            System.out.println("Pon numeros");
         }
 
         if (nombre.isEmpty() || edad.isEmpty() || direccion.isEmpty() || edadNumero <= 0) {
@@ -91,27 +94,24 @@ public class FormularioValidacion extends JFrame implements ActionListener {
 
     public void escribirArchivo(String nombre, String edad, String direccion) throws IOException {
         FileWriter fw = new FileWriter("Archivo.txt");
-        fw.write(nombre);
-        fw.write("\n");
-        fw.write(edad);
-        fw.write("\n");
-        fw.write(direccion);
-        fw.write("\n");
+        fw.write(nombre + ";" + edad + ";" + direccion);
         fw.close();
     }
 
     public String[] escanearArchivo() throws FileNotFoundException {
         String cadena = "";
-
-        try{
+        try {
             Scanner sc = new Scanner(new File("Archivo.txt"));
-                while (sc.hasNext()) {
-                    cadena = sc.nextLine();
-                }
-            } catch(FileNotFoundException e){
-                System.out.println("No existe el archivo");
+            while (sc.hasNext()) {
+                String cadenaFinal = sc.nextLine();
+                cadena += cadenaFinal.trim();
             }
-        return cadena.split("\n");
+
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("No existe el archivo");
+        }
+        return cadena.split(";");
     }
 
     @Override
@@ -127,12 +127,23 @@ public class FormularioValidacion extends JFrame implements ActionListener {
                 }
             }
         } 
+        
         if (e.getSource() == btnCargar){
             try {
+                int respuesta = 0;
                 String [] lista = escanearArchivo();
-                txfNombre.setText(lista[0]);
-                txfEdad.setText(lista[1]);
-                txfDireccion.setText(lista[2]);
+                if (lista.length != 3) {
+                    throw new FileNotFoundException();
+                }
+                if (lista.length == 3 && txfNombre.getText() != "" || txfEdad.getText() != "" || txfDireccion.getText() != "") {
+                    respuesta = JOptionPane.showConfirmDialog(this, "Desea borrar los datos anteriores¿?", "ALERTA!", JOptionPane.YES_NO_OPTION);
+                } 
+                if (respuesta == 0) {
+
+                    txfNombre.setText(lista[0]);                                                                                                                                    
+                    txfEdad.setText(lista[1]);                                                                                                                                    
+                    txfDireccion.setText(lista[2]);                                                                                                                                   
+                }
             } catch (FileNotFoundException e1) {
             }
         }
