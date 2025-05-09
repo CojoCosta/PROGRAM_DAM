@@ -67,7 +67,7 @@ public class TragaPerra extends JFrame implements ActionListener {
         cont ++;
         minutos = cont / 60;
         segundos = cont % 60;
-        etiquetaTemporizador.setText(String.format("%2d : %2d", minutos, segundos));
+        etiquetaTemporizador.setText(String.format("%02d : %02d", minutos, segundos));
         // etiquetaTemporizador.setText(String.format("%2d", cont));
 
         if (e.getSource() == boton) {
