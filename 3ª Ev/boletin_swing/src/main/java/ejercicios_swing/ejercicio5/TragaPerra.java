@@ -3,12 +3,12 @@ package ejercicios_swing.ejercicio5;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
 public class TragaPerra extends JFrame implements ActionListener {
     private JTextField textNumero1;
@@ -18,6 +18,10 @@ public class TragaPerra extends JFrame implements ActionListener {
     private JLabel etiquetaPremio;
     private JLabel etiquetaTemporizador;
     private Timer tiempo;
+    private int cont;
+    private int minutos;
+    private int segundos;
+    
 
     public TragaPerra() {
         this.setTitle("LA TRAGA");
@@ -46,29 +50,36 @@ public class TragaPerra extends JFrame implements ActionListener {
         this.add(etiquetaPremio);
 
         etiquetaTemporizador = new JLabel("0");
+        add(etiquetaTemporizador);
         this.add(etiquetaTemporizador);
+        cont = 0;
+        tiempo = new Timer(1000, this);
+        tiempo.start();
     }
-
+    
     public int numeroAleatorio() {
         return (int) (Math.random() * 6 + 1);
     }
-
-    public void temporizador() {
-        tiempo = new Timer(1000, );
-    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        cont ++;
+        minutos = cont / 60;
+        segundos = cont % 60;
+        etiquetaTemporizador.setText(String.format("%2d : %2d", minutos, segundos));
+        // etiquetaTemporizador.setText(String.format("%2d", cont));
+
         if (e.getSource() == boton) {
             textNumero1.setText(String.format("%d", numeroAleatorio()));
             textNumero2.setText(String.format("%d", numeroAleatorio()));
             textNumero3.setText(String.format("%d", numeroAleatorio()));
         }
-        if (textNumero1.getText() == textNumero2.getText() && textNumero1.getText() == textNumero3.getText()) {
+
+        if (textNumero1.getText().equals(textNumero2.getText()) && textNumero1.getText().equals(textNumero3.getText())) {
             etiquetaPremio.setText("PREMIO");
         } else {
             etiquetaPremio.setText("TRY AGAIN");
         }
-        etiquetaTemporizador
     }
 }
