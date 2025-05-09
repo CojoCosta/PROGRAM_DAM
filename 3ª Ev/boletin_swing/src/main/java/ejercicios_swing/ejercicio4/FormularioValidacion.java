@@ -117,7 +117,7 @@ public class FormularioValidacion extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnGuardar) {
-            
+
             if (validacionDeDatos(txfNombre.getText(), txfEdad.getText(), txfDireccion.getText()) == false) {
                 JOptionPane.showMessageDialog(this, "Datos inválidos", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
@@ -126,25 +126,31 @@ public class FormularioValidacion extends JFrame implements ActionListener {
                 } catch (IOException e1) {
                 }
             }
-        } 
-        
-        if (e.getSource() == btnCargar){
+        }
+
+        if (e.getSource() == btnCargar) {
             try {
                 int respuesta = 1;
-                String [] lista = escanearArchivo();
+                String[] lista = escanearArchivo();
                 if (lista.length != 3) {
                     throw new FileNotFoundException();
-                } else if (txfNombre.getText().trim().equals("") || txfEdad.getText().trim().equals("") || txfDireccion.getText().trim().equals("")) {
+                } else if (txfNombre.getText().trim().equals("") || txfEdad.getText().trim().equals("")
+                        || txfDireccion.getText().trim().equals("")) {
                     txfNombre.setText(lista[0]);
                     txfEdad.setText(lista[1]);
                     txfDireccion.setText(lista[2]);
                 } else {
-                    respuesta = JOptionPane.showConfirmDialog(this, "Desea borrar los datos anteriores¿?", "ALERTA!", JOptionPane.YES_NO_OPTION);
+                    respuesta = JOptionPane.showConfirmDialog(this, "Desea borrar los datos anteriores¿?", "ALERTA!",
+                            JOptionPane.YES_NO_OPTION);
                 }
                 if (respuesta == JOptionPane.YES_OPTION) {
-                    txfNombre.setText(lista[0]);
-                    txfEdad.setText(lista[1]);
-                    txfDireccion.setText(lista[2]);
+                    if (validacionDeDatos(txfNombre.getText(), txfEdad.getText(), txfDireccion.getText()) == false) {
+                        JOptionPane.showMessageDialog(this, "Datos inválidos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        txfNombre.setText(lista[0]);
+                        txfEdad.setText(lista[1]);
+                        txfDireccion.setText(lista[2]);
+                    }
                 }
             } catch (FileNotFoundException e1) {
             }
