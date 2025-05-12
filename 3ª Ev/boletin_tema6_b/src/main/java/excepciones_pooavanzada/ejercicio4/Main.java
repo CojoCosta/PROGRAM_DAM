@@ -3,7 +3,7 @@ package excepciones_pooavanzada.ejercicio4;
 public class Main {
     // #region GANANCIAS
     public static void main(String[] args) {
-        Empleado empleado1 = new Empleado("Costa", "Diego", 24, "39458229G", 5000);
+        Empleado empleado1 = new Empleado("Costa", "Diego", 24, "3945822", 5000);
         System.out.println(empleado1.getNombre());
         System.out.println(empleado1.getApellidos());
         System.out.println(empleado1.getDni());

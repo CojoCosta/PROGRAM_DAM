@@ -34,11 +34,11 @@ public abstract class Persona {
 
     public void setDni(String dni) {
         int numeros = 0;
-        String numerosString = dni.substring(0, 8);
+        String numerosString = dni.substring(0, 8);  //TODO puede fallar
         if (dni.length() != 9 && dni.length() != 10 || numerosString.length() != 8) {
             throw new DNIException("DNI no valido.");
         } else {
-            for (int i = 0; i < numerosString.length(); i++) {
+            for (int i = 0; i < numerosString.length(); i++) { //TODO no cpaturar
                 try {
                     numeros = Integer.parseInt(numerosString);
                 } catch (DNIException e) {
@@ -78,7 +78,7 @@ public abstract class Persona {
     // #endregion
     @Override
     public String toString() {
-        return nombre + apellidos;
+        return nombre + apellidos;//TODO mete espacio
     }
 
 }

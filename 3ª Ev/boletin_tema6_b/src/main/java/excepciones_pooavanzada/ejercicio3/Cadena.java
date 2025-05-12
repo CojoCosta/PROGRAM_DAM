@@ -7,7 +7,6 @@ public class Cadena {
 
     public void setCadena(String cadena) {//TODO trim sin trim
         for (int i = 0; i < cadena.length(); i++) {
-           
             if (cadena.charAt(i) != ' ') {
                 this.cadena.add(cadena.charAt(i));
             }                
@@ -29,10 +28,6 @@ public class Cadena {
             if (arrayDelObj.length == cadena.size()) {
                 for (int i = 0; i < arrayDelObj.length; i++) {
                     for (int j = 0; j < cadena.size(); j++) {
-                        // if (obj.get(i) == cadena.get(i)) {
-                        //     ; 
-                        // }
-                    }
                 }
             }
             return this.equals(obj);
