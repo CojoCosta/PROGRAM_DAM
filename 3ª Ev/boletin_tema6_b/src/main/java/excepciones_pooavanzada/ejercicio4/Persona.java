@@ -33,33 +33,7 @@ public abstract class Persona {
     }
 
     public void setDni(String dni) {
-        int numeros = 0;
-        String numerosString = dni.substring(0, 8);  //TODO puede fallar
-        if (dni.length() != 9 && dni.length() != 10 || numerosString.length() != 8) {
-            throw new DNIException("DNI no valido.");
-        } else {
-            for (int i = 0; i < numerosString.length(); i++) { //TODO no cpaturar
-                try {
-                    numeros = Integer.parseInt(numerosString);
-                } catch (DNIException e) {
-                    System.out.println("DNI no valido.");
-                }
-            }
-        }
-        String letra = dni.substring(8);
-        if (letra.equals("-")) {
-            letra = dni.replace('-', dni.charAt(9));
-        }
-
-        char letra2 = letra.charAt(0);
-        letra2 = Character.toUpperCase(letra2);
-
-        char letraFinal = LetrasDNI.charAt(numeros % 23);
-
-        if (letra2 != letraFinal) {
-            throw new DNIException("Esa letra no corresponde en el numero del DNI");
-        }
-        this.dni = numerosString + letra;
+        comprobarDNI(dni);
     }
 
     public String getDni() {
@@ -79,6 +53,36 @@ public abstract class Persona {
     @Override
     public String toString() {
         return nombre + apellidos;//TODO mete espacio
+    }
+
+    public String comprobarDNI(String dni){
+        int numeros = 0;
+        String numerosString = dni.substring(0, 8);  //TODO puede fallar
+        System.err.println(numerosString);
+        if (dni.length() != 9 && dni.length() != 10 || numerosString.length() != 8) {
+            throw new DNIException("DNI no valido.");
+        } else {
+            for (int i = 0; i < numerosString.length(); i++) { //TODO no cpaturar
+                try {
+                    numeros = Integer.parseInt(numerosString);
+                } catch (DNIException e) {
+                }
+            }
+        }
+        String letra = dni.substring(8);
+        if (letra.equals("-")) {
+            letra = dni.replace('-', dni.charAt(9));
+        }
+
+        char letra2 = letra.charAt(0);
+        letra2 = Character.toUpperCase(letra2);
+
+        char letraFinal = LetrasDNI.charAt(numeros % 23);
+
+        if (letra2 != letraFinal) {
+            throw new DNIException("Esa letra no corresponde en el numero del DNI");
+        }
+        return numerosString + letra;
     }
 
 }

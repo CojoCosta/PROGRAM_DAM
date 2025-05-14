@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 
-public class TragaPerra extends JFrame implements ActionListener {
+public class TragaPerra extends JFrame implements ActionListener {//TODO segundos incrementa con los clicks
     private JTextField textNumero1;
     private JTextField textNumero2;
     private JTextField textNumero3;
@@ -23,24 +23,21 @@ public class TragaPerra extends JFrame implements ActionListener {
     private int segundos;
     
 
-    public TragaPerra() {
+    public TragaPerra() { 
         this.setTitle("LA TRAGA");
         this.setLayout(new FlowLayout());
 
         textNumero1 = new JTextField(10);
         textNumero1.setEditable(false);
         this.add(textNumero1);
-        textNumero1.addActionListener(this);
 
         textNumero2 = new JTextField(10);
         textNumero2.setEditable(false);
         this.add(textNumero2);
-        textNumero2.addActionListener(this);
 
         textNumero3 = new JTextField(10);
         textNumero3.setEditable(false);
         this.add(textNumero3);
-        textNumero3.addActionListener(this);
 
         boton = new JButton("Jugar");
         this.add(boton);
@@ -51,14 +48,14 @@ public class TragaPerra extends JFrame implements ActionListener {
 
         etiquetaTemporizador = new JLabel("0");
         add(etiquetaTemporizador);
-        this.add(etiquetaTemporizador);
+  
         cont = 0;
         tiempo = new Timer(1000, this);
         tiempo.start();
     }
     
     public int numeroAleatorio() {
-        return (int) (Math.random() * 6 + 1);
+        return (int) (Math.random() * 3 + 1);
     }
     
 

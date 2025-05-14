@@ -30,11 +30,12 @@ public class Directivo extends Persona{
     //#region CONSTRUCTORES
     public Directivo(){
         super("", "", 0, "");
-        departamento = " ";
+        departamento = "";
         porcentajeBeneficios = 0;
     }
     public Directivo(String nombre, String apellidos, int edad, String dni, String departamento, double porcentajeBeneficios){
         super(nombre, apellidos, edad, dni);
+        setDepartamento(departamento);
         setPorcentajeBeneficios(porcentajeBeneficios);
     }
     //#endregion
