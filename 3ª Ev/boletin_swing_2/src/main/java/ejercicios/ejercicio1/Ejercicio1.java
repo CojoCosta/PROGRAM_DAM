@@ -1,18 +1,15 @@
 package ejercicios.ejercicio1;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Point;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyAdapter;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Ejercicio1 extends JFrame {
+public class Ejercicio1 extends JFrame{
     private JButton boton1;
     private JButton boton2;
     private JLabel teclas;
@@ -22,6 +19,8 @@ public class Ejercicio1 extends JFrame {
         this.setLayout(null);
         this.getContentPane().addMouseMotionListener(new MouseEvent());
         this.getContentPane().addMouseListener(new MouseEvent());
+        this.addKeyListener(new KeyEvent());
+        this.setFocusable(true);
 
         boton1 = new JButton("Izquierda");
         boton1.setLocation(40, 20);
@@ -53,7 +52,6 @@ public class Ejercicio1 extends JFrame {
             } else{
                 teclas.setText(String.format("Posición X:%d Y:%d ", e.getX(), e.getY()));
             }
-            
         }       
 
         @Override
@@ -84,5 +82,18 @@ public class Ejercicio1 extends JFrame {
             boton1.setBackground(null);
             boton2.setBackground(null);
         }
+
+    }
+
+    private class KeyEvent extends KeyAdapter {
+        @Override
+        public void keyPressed(java.awt.event.KeyEvent e) {
+            teclas.setText(String.format("Letra: %c y codigo %d ", e.getKeyChar(), e.getKeyCode()));
+            if (java.awt.event.KeyEvent.VK_C == e.getKeyCode() && e.isControlDown()) {
+                System.err.println("FUNCIONA");
+                FormSecundario f2 = new FormSecundario();
+            }
+        }
     }
 }
+
