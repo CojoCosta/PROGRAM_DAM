@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class Cadena {
     private ArrayList<Character> cadena;
 
-    public void setCadena(String cadena) {//TODO trim sin trim
+    public void setCadena(String cadena) {// TODO trim sin trim
         for (int i = 0; i < cadena.length(); i++) {
             if (cadena.charAt(i) != ' ') {
                 this.cadena.add(cadena.charAt(i));
-            }                
+            }
         }
     }
+
     @Override
     public String toString() {
         String cadenaCompleta = "";
@@ -19,8 +20,8 @@ public class Cadena {
             cadenaCompleta += cadena.get(i);
         }
         return cadenaCompleta;
-    } 
-    
+    }
+
     @Override 
     public boolean equals(Object obj) {//TODO revisar
         if (obj.getClass()==char[].class) {
@@ -57,4 +58,6 @@ public class Cadena {
         }
         return acu;
     }
+}
+
 }

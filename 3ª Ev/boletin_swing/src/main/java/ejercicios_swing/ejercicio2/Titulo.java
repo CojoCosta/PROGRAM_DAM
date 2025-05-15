@@ -42,8 +42,7 @@ public class Titulo extends JFrame implements ActionListener, ItemListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (preguntaConfirmacion.showConfirmDialog(this,
-                String.format("¿Quieres poner el título \"%s\"?", texto.getText())) == JOptionPane.OK_OPTION) {
+        if (preguntaConfirmacion.showConfirmDialog(this, String.format("¿Quieres poner el título \"%s\"?", texto.getText())) == JOptionPane.OK_OPTION) {
             this.setTitle(texto.getText());
         }
         if (alRevesCheck.isSelected()) {

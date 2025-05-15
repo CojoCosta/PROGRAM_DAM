@@ -2,6 +2,7 @@ package ejercicios.ejercicio1;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Point;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
@@ -26,11 +27,13 @@ public class Ejercicio1 extends JFrame {
         boton1.setLocation(40, 20);
         boton1.setSize(100, 40);
         boton1.addMouseListener(new MouseEvent());
+        boton1.addMouseMotionListener(new MouseEvent());
         this.add(boton1);
 
         boton2 = new JButton("Derecha");
         boton2.setLocation(160, 20);
         boton2.setSize(100, 40);
+        boton2.addMouseMotionListener(new MouseEvent());
         boton2.addMouseListener(new MouseEvent());
         this.add(boton2);
 
@@ -43,8 +46,15 @@ public class Ejercicio1 extends JFrame {
     private class MouseEvent extends MouseAdapter {
         @Override
         public void mouseMoved(java.awt.event.MouseEvent e) {
-            teclas.setText(String.format("Posición X:%d Y:%d ", e.getX(), e.getY()));
-        }
+            if (e.getSource() == boton1 || e.getSource() == boton2) {
+                teclas.setText(String.format("Posición X:%d Y:%d ", e.getX() + boton1.getX(), e.getY() + boton1.getY()));
+                System.err.println(boton1.getX());
+                System.err.println(boton1.getY());
+            } else{
+                teclas.setText(String.format("Posición X:%d Y:%d ", e.getX(), e.getY()));
+            }
+            
+        }       
 
         @Override
         public void mouseExited(java.awt.event.MouseEvent e) {
