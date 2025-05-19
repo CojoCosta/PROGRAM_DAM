@@ -3,6 +3,7 @@ package ejercicios.ejercicio1;
 import java.awt.Color;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyAdapter;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 
 import javax.swing.JButton;
@@ -27,6 +28,7 @@ public class Ejercicio1 extends JFrame{
         boton1.setSize(100, 40);
         boton1.addMouseListener(new MouseEvent());
         boton1.addMouseMotionListener(new MouseEvent());
+        boton1.addKeyListener(new KeyEvent());
         this.add(boton1);
 
         boton2 = new JButton("Derecha");
@@ -34,6 +36,7 @@ public class Ejercicio1 extends JFrame{
         boton2.setSize(100, 40);
         boton2.addMouseMotionListener(new MouseEvent());
         boton2.addMouseListener(new MouseEvent());
+        boton2.addKeyListener(new KeyEvent());
         this.add(boton2);
 
         teclas = new JLabel("Teclas");
@@ -91,8 +94,13 @@ public class Ejercicio1 extends JFrame{
             teclas.setText(String.format("Letra: %c y codigo %d ", e.getKeyChar(), e.getKeyCode()));
             if (java.awt.event.KeyEvent.VK_C == e.getKeyCode() && e.isControlDown()) {
                 System.err.println("FUNCIONA");
-                FormSecundario f2 = new FormSecundario();
-            }
+                FormSecundario f2 = null;
+                if (f2.) {
+                } else{
+                    f2 = new FormSecundario();
+                }
+            } 
+            
         }
     }
 }

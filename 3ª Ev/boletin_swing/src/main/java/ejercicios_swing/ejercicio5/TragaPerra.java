@@ -58,14 +58,16 @@ public class TragaPerra extends JFrame implements ActionListener {//TODO segundo
         return (int) (Math.random() * 3 + 1);
     }
     
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        cont ++;
-        minutos = cont / 60;
-        segundos = cont % 60;
-        etiquetaTemporizador.setText(String.format("%02d : %02d", minutos, segundos));
-        // etiquetaTemporizador.setText(String.format("%2d", cont));
+        if (e.getSource() == boton) {
+        } else{
+            cont ++;
+            minutos = cont / 60;
+            segundos = cont % 60;
+            etiquetaTemporizador.setText(String.format("%02d : %02d", minutos, segundos));
+        }
 
         if (e.getSource() == boton) {
             textNumero1.setText(String.format("%d", numeroAleatorio()));

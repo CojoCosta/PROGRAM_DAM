@@ -8,5 +8,6 @@ public class Main {
         ej1.setSize(500, 500);
         ej1.setVisible(true);
         ej1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        System.out.println(System.getProperty("user.home"));
     }
 }
