@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Ejercicio1 extends JFrame{
     private JButton boton1;
@@ -95,9 +96,11 @@ public class Ejercicio1 extends JFrame{
             if (java.awt.event.KeyEvent.VK_C == e.getKeyCode() && e.isControlDown()) {
                 System.err.println("FUNCIONA");
                 FormSecundario f2 = null;
-                if (f2.) {
-                } else{
+                if (f2 == null || !f2.isVisible()) {
                     f2 = new FormSecundario();
+                    f2.setVisible(true);
+                } else if(f2.isVisible()){
+                    JOptionPane.showMessageDialog(f2, e, "ERROR", ERROR);
                 }
             } 
             
