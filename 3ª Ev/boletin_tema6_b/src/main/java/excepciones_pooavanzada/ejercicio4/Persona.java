@@ -52,22 +52,26 @@ public abstract class Persona {
     // #endregion
     @Override
     public String toString() {
-        return nombre + apellidos;//TODO mete espacio
+        return nombre + " " + apellidos;
     }
 
     public String comprobarDNI(String dni){
         int numeros = 0;
-        String numerosString = dni.substring(0, 8);  //TODO puede fallar
+        String numerosString = "";
+        try {
+            numerosString = dni.substring(0, 8);   
+        } catch (IllegalArgumentException e) {
+            throw new DNIException("tamaño de cadena incorrecto");
+        }
         System.err.println(numerosString);
         if (dni.length() != 9 && dni.length() != 10 || numerosString.length() != 8) {
             throw new DNIException("DNI no valido.");
         } else {
-            for (int i = 0; i < numerosString.length(); i++) { //TODO no cpaturar
                 try {
                     numeros = Integer.parseInt(numerosString);
-                } catch (DNIException e) {
+                } catch (NumberFormatException e) {
+                    throw new DNIException("DNI no valido");
                 }
-            }
         }
         String letra = dni.substring(8);
         if (letra.equals("-")) {

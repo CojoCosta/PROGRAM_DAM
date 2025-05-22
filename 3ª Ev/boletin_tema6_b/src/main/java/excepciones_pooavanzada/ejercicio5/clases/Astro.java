@@ -10,9 +10,13 @@ public class Astro {
     public String getNombre() {
         return nombre;
     }
-    // public String getNombre() {
-    //     return nombre.split(["_"]);
-    // }
+    public String getNombre(char caracter) {
+        String nuevoNombre = "";
+        for (int i = 0; i < nombre.length(); i++) {
+            nuevoNombre += nombre.charAt(i) + caracter;
+        }
+        return nuevoNombre.substring(0, nuevoNombre.length() - 1);
+    }
 
     public void setRadio(double radio) {
         if (radio <= 0) {

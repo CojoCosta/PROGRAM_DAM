@@ -11,7 +11,7 @@ public class Cadena {
                 this.cadena.add(cadena.charAt(i));
             }
         }
-    }
+    } // "     lkusdhfiu dshfg dhsfl dh       "
 
     @Override
     public String toString() {
@@ -23,12 +23,16 @@ public class Cadena {
     }
 
     @Override
-    public boolean equals(Object obj) {// TODO revisar
+    public boolean equals(Object obj) { 
         if (obj.getClass() == char[].class) {
             char[] arrayDelObj = (char[]) obj;
             if (arrayDelObj.length == cadena.size()) {
                 for (int i = 0; i < arrayDelObj.length; i++) {
                     for (int j = 0; j < cadena.size(); j++) {
+                        //TODO HACER ESTO A SABER COMO
+                        // if (arrayDelObj.clone() == cadena.clone()) {
+                            
+                        // }
                     }
                 }
                 return this.equals(obj);
@@ -36,16 +40,21 @@ public class Cadena {
                 ArrayList<Character> cadena2 = (ArrayList<Character>) obj;
                 if (cadena2.size() == cadena.size()) {
                     for (int i = 0; i < cadena.size(); i++) {
-                        for (int j = 0; j < cadena2.size(); j++) {
-                            if (cadena.get(i) == cadena2.get(j)) {
-                                return true;
-                            }
+                        
+                            if (cadena.get(i) == cadena2.get(i)) {
+                                return false;
+                            
                         }
                     }
                     return this.equals(obj);
                 }
                 return this.equals(obj);
+            } else if(obj.getClass() == String.class){//TODO String hacer esto
+                
+
             }
+            
+            
         }
         return false;
     }
