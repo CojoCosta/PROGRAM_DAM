@@ -7,19 +7,20 @@ import java.awt.event.ItemListener;
 import java.io.File;
 
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JTextArea;
 
-public class FormSecundario extends JFrame implements ActionListener, ItemListener{
+public class FormSecundario extends JDialog implements ActionListener, ItemListener{
 
     private JComboBox<String> cboArchivos;
     private JTextArea txtTamaño;
 
-    public FormSecundario() {
+    public FormSecundario(Ejercicio1 ej1) {
+        super (ej1, true);
         this.setTitle("Buscador de archivos");
         this.setLayout(null);
         this.setSize(500, 500);
-        this.setVisible(true);
+        
 
         // lista archivos
         String directorio = System.getProperty("user.home");
