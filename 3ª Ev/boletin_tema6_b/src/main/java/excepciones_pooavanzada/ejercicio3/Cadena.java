@@ -6,12 +6,23 @@ public class Cadena {
     private ArrayList<Character> cadena;
 
     public void setCadena(String cadena) {// TODO trim sin trim
-        for (int i = 0; i < cadena.length(); i++) {
-            if (cadena.charAt(i) != ' ') {
-                this.cadena.add(cadena.charAt(i));
-            }
+        System.err.println(cadena);
+        ArrayList<Character> cadenaConTrim = new ArrayList<Character>();
+        for (int j = 0; j < cadena.length(); j++) {
+            cadenaConTrim.add(cadena.charAt(j));
         }
-    } // "     lkusdhfiu dshfg dhsfl dh       "
+        while (cadenaConTrim.get(0) == ' ') {
+            cadenaConTrim.remove(0);
+        }
+        while (cadenaConTrim.get(cadenaConTrim.size() - 1) == ' ') {
+            cadenaConTrim.remove(cadenaConTrim.size() - 1);
+        }
+        this.cadena = cadenaConTrim;
+        System.err.print(cadenaConTrim);
+
+    }
+
+    // " lkusdhfiu dshfg dhsfl dh "
 
     @Override
     public String toString() {
@@ -23,38 +34,38 @@ public class Cadena {
     }
 
     @Override
-    public boolean equals(Object obj) { 
+    public boolean equals(Object obj) {
         if (obj.getClass() == char[].class) {
-            char[] arrayDelObj = (char[]) obj;
-            if (arrayDelObj.length == cadena.size()) {
-                for (int i = 0; i < arrayDelObj.length; i++) {
-                    for (int j = 0; j < cadena.size(); j++) {
-                        //TODO HACER ESTO A SABER COMO
-                        // if (arrayDelObj.clone() == cadena.clone()) {
-                            
-                        // }
+            char[] arrayDeCadena = (char[]) obj;
+            if (arrayDeCadena.length == cadena.size()) {
+                for (int i = 0; i < arrayDeCadena.length; i++) {
+                    // TODO HACER ESTO A SABER COMO
+                    if (arrayDeCadena[i] == cadena.get(i)) {
+                        return false;
                     }
                 }
                 return this.equals(obj);
             } else if (obj.getClass() == Cadena.class) {
                 ArrayList<Character> cadena2 = (ArrayList<Character>) obj;
                 if (cadena2.size() == cadena.size()) {
-                    for (int i = 0; i < cadena.size(); i++) {
-                        
-                            if (cadena.get(i) == cadena2.get(i)) {
-                                return false;
-                            
+                    for (int i = 0; i < cadena2.size(); i++) {
+                        if (cadena.get(i) == cadena2.get(i)) {
+                            return false;
                         }
                     }
                     return this.equals(obj);
                 }
                 return this.equals(obj);
-            } else if(obj.getClass() == String.class){//TODO String hacer esto
-                
-
+            } else if (obj.getClass() == String.class) {// TODO String hacer esto
+                String cadenaString = (String) obj;
+                if (cadenaString.length() == cadena.size()) {
+                    for (int i = 0; i < cadenaString.length(); i++) {
+                        if (cadenaString.charAt(i) == cadena.get(i)) {
+                            return false;
+                        }
+                    }
+                }
             }
-            
-            
         }
         return false;
     }

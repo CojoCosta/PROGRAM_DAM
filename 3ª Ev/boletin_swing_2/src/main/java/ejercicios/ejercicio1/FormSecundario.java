@@ -33,7 +33,6 @@ public class FormSecundario extends JFrame implements ActionListener, ItemListen
         cboArchivos.addActionListener(this);
         cboArchivos.addItemListener(this);
         
-        
         txtTamaño = new JTextArea();
         txtTamaño.setLocation(240, 20);
         txtTamaño.setSize(150, 30);
@@ -47,10 +46,9 @@ public class FormSecundario extends JFrame implements ActionListener, ItemListen
             cboArchivos.addItem(txtTamaño.getText());
         }
     }
-    
+
     @Override
     public void itemStateChanged(ItemEvent e) {
         txtTamaño.setText(String.format("Tamaño: %s",cboArchivos));
     }
-
 }
