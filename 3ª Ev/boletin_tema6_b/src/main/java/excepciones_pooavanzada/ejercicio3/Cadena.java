@@ -45,27 +45,29 @@ public class Cadena {
                     }
                 }
                 return this.equals(obj);
-            } else if (obj.getClass() == Cadena.class) {
-                ArrayList<Character> cadena2 = (ArrayList<Character>) obj;
-                if (cadena2.size() == cadena.size()) {
-                    for (int i = 0; i < cadena2.size(); i++) {
-                        if (cadena.get(i) == cadena2.get(i)) {
-                            return false;
-                        }
+            }
+        } else if (obj.getClass() == Cadena.class) {
+            ArrayList<Character> cadena2 = (ArrayList<Character>) obj; 
+            if (cadena2.size() == cadena.size()) {
+                for (int i = 0; i < cadena2.size(); i++) {
+                    if (cadena.get(i) == cadena2.get(i)) {
+                        return false;
                     }
-                    return this.equals(obj);
                 }
                 return this.equals(obj);
-            } else if (obj.getClass() == String.class) {// TODO String hacer esto
-                String cadenaString = (String) obj;
-                if (cadenaString.length() == cadena.size()) {
-                    for (int i = 0; i < cadenaString.length(); i++) {
-                        if (cadenaString.charAt(i) == cadena.get(i)) {
-                            return false;
-                        }
+            }
+            return this.equals(obj);
+        } else if (obj.getClass() == String.class) {// TODO String hacer esto
+            String cadenaString = (String) obj;
+            if (cadenaString.length() == cadena.size()) {
+                for (int i = 0; i < cadenaString.length(); i++) {
+                    if (cadenaString.charAt(i) == cadena.get(i)) {
+                        return false;
                     }
                 }
             }
+        } else {
+            throw new IllegalArgumentException();
         }
         return true;
     }
