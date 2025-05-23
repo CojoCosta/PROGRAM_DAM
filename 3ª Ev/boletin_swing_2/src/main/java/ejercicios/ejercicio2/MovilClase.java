@@ -27,7 +27,6 @@ public class MovilClase extends JFrame implements ActionListener{
                 x += 210;
             }
         }
-
     }
 
     @Override
