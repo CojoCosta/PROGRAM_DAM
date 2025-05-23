@@ -67,7 +67,7 @@ public class Cadena {
                 }
             }
         }
-        return false;
+        return true;
     }
 
     public int elimnar(char caracter) {
