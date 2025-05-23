@@ -38,9 +38,7 @@ public class Cadena {
             char[] arrayDeCadena = (char[]) obj;
             if (arrayDeCadena.length == cadena.size()) {
                 for (int i = 0; i < arrayDeCadena.length; i++) {
-                    // TODO HACER ESTO A SABER COMO
                     if (arrayDeCadena[i] != cadena.get(i)) {
-                    
                         return false;
                     }
                 }
@@ -57,7 +55,7 @@ public class Cadena {
                 return true;
             }
             return this.equals(obj);
-        } else if (obj.getClass() == String.class) {// TODO String hacer esto
+        } else if (obj.getClass() == String.class) {
             String cadenaString = (String) obj;
             if (cadenaString.length() == cadena.size()) {
                 for (int i = 0; i < cadenaString.length(); i++) {

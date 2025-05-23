@@ -26,6 +26,7 @@ public class FormSecundario extends JDialog implements ActionListener, ItemListe
         String directorio = System.getProperty("user.home");
         File archivos = new File(directorio);
         String[] conjuntoDirectorios = archivos.list();
+        long tamañoArchivos = archivos.length();
         
         cboArchivos = new JComboBox<String>(conjuntoDirectorios);
         cboArchivos.setLocation(20, 20);
@@ -42,7 +43,6 @@ public class FormSecundario extends JDialog implements ActionListener, ItemListe
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         if (!txtTamaño.getText().trim().equals("")) {
             cboArchivos.addItem(txtTamaño.getText());
         }
@@ -50,6 +50,6 @@ public class FormSecundario extends JDialog implements ActionListener, ItemListe
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        txtTamaño.setText(String.format("Tamaño: %s",cboArchivos));
+        txtTamaño.setText(String.format("Tamaño: %d",cboArchivos));
     }
 }
