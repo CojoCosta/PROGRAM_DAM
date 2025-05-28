@@ -30,7 +30,7 @@ public class Bol3_Ejer14 {
         }
     }
 
-    public static void main(String[] args) {//TODO revisar lógica del juego (que no aparezca la cpu si gana o pierde el usuario)
+    public static void main(String[] args) {
         int tiradaUsuario = tiradaDados();
         int tiradaCPU = tiradaDados();
 

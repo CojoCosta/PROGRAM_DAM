@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Coseno de un ángulo aproximado por Taylor
  */
-public class Bol3_Ejer11 {//TODO docs
+public class Bol3_Ejer11 {
     public static double factorial(int n) {
         return n == 0 || n == 1 ? 1 : n * factorial(n - 1);
     }
@@ -24,7 +24,7 @@ public class Bol3_Ejer11 {//TODO docs
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double number;
-        System.out.print("Introduce un numero: ");//TODO comparar con Math.cos
+        System.out.print("Introduce un numero: ");
         number = sc.nextDouble();
         for (double i = 0.1; i <= 1; i = i+0.1) {
             number = cosenoTaylor(i, 4);

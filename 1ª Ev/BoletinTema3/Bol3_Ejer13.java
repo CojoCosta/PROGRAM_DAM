@@ -16,7 +16,7 @@ public static double tirarDado(int numeroCarasDado) {
     return randomNumber;
 }
 
-public static void main(String[] args) throws Exception {//TODO numeros distintos el usuario y acumulación en juegos repetidos de aciertos
+public static void main(String[] args) throws Exception {
     Scanner sc = new Scanner(System.in);
     String userName;
     int numeroCarasDado;

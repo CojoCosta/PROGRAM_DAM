@@ -14,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-// TODO Si hay datos preguntar antes de cargar.  
 
 public class FormularioValidacion extends JFrame implements ActionListener {
     private JLabel etiquetaNombre;

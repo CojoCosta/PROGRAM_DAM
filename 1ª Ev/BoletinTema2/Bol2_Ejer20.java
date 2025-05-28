@@ -17,7 +17,6 @@ public class Bol2_Ejer20 {
             System.out.println(asterisco);
         }
         System.out.println();
-        // TODO como hacer la pirámide
         System.out.println("Ahora lo haremos en piramide");
 
         

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //un numero aleatorio entre 1 y 3 sin usar math.ceil 
 public class Bol3_Ejer12 {
-    public static char generarQuiniela() {//TODO docs
+    public static char generarQuiniela() {
         int numeroAleatorio = (int) (Math.random() * 3);
         return numeroAleatorio == 1 ? '1' : numeroAleatorio == 2 ? '2' : 'X';
     }

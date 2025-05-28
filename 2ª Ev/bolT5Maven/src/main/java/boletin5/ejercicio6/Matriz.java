@@ -92,7 +92,7 @@ public class Matriz {
                 acuDiagonal += this.matriz[i][i];
             }
             return acuDiagonal;
-        } else {//TODO sin bucles
+        } else {
             return  sumaMatriz() - sumaMatriz(true);
 
         }

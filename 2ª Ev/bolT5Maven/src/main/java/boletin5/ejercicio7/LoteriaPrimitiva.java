@@ -110,7 +110,7 @@ public class LoteriaPrimitiva {
         return true;
     }
 
-    public static void main(String[] args) {//TODO meter 6 nº separados por comas con las comprobaciones pertinentas
+    public static void main(String[] args) {
         ArrayList<Integer> numerosUsuario = new ArrayList<>();
         ArrayList<Integer> numerosLoteria = new ArrayList<>();
         int[] numeroAciertos = new int[7];
