@@ -50,6 +50,9 @@ public class FormSecundario extends JDialog implements ActionListener, ItemListe
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        txtTamaño.setText(String.format("Tamaño: %d",cboArchivos));
+
+        File 
+        //hacer el FILE y escribir la ruta
+        txtTamaño.setText(String.format("Tamaño: %d",cboArchivos.getSelectedItem()));
     }
 }
