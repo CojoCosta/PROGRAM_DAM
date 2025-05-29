@@ -53,8 +53,8 @@ public class MovilClase extends JFrame implements ActionListener {
                 System.err.println("Boton pulsado");
                 datos += ((JButton)e.getSource()).getText();
                 txtNumerosPulsados.setText(datos);
-
         }
+        
         @Override
         public void mouseEntered(java.awt.event.MouseEvent e) {
             if (((JButton) e.getSource()).getBackground() == Color.YELLOW) {
@@ -71,19 +71,16 @@ public class MovilClase extends JFrame implements ActionListener {
             }
         }
     }
+
     private class EventoTeclado extends KeyAdapter{
         @Override
         public void keyPressed (KeyEvent e){
                 datos += ((JButton)e.getSource()).getText();
                 txtNumerosPulsados.setText(datos);
-            
-
         }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         
     }
-    
-
 }
