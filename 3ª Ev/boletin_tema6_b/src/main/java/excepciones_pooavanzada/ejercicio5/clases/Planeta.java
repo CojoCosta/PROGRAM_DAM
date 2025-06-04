@@ -14,15 +14,13 @@ public class Planeta extends Astro{
         return this.gaseoso;
     }
 
-    public Planeta(String nombre, double radio, boolean gaseoso, ArrayList<Astro> satelites){
-        super.setNombre(nombre);
-        super.setRadio(radio);
+    public Planeta(String nombre, double radio, boolean gaseoso){
+        super(nombre, radio);
         this.setGaseoso(gaseoso);
-        this.satelites = satelites;
+        satelites = new ArrayList<Astro>();
     }
 
     public Planeta(){
-        this("", 0, false, null);
+        this("", 0, false);
     }
-    
 }
