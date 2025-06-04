@@ -28,11 +28,9 @@ public class Main {
             System.out.print("Elige una opcion: ");
             option = Libreria.pedirEntero();
             switch (option) {
-                case 1:// : Pregunta si es gaseoso y pide el nombre y radio. También pregunta cantidad
-                       // de lunas y se introducirán sus nombres y radios.
+                case 1:
                     System.out.println("Como se llama el planeta¿?");
                     nombrePlaneta = sc.nextLine();
-                    Libreria.pedirString(nombrePlaneta);
                     System.out.println("Cual es su radio¿?");
                     radio = Libreria.pedirReal();
                     do {
@@ -45,30 +43,32 @@ public class Main {
                         } else {
                             satelites.add(new Planeta(nombrePlaneta, radio, false));
                         }
-                    } while (option2 != 0);
+                    } while (option2 != 1 && option2 != 2);
                     System.out.println("Cuantas lunas tiene¿?");
                     numeroLunas = Libreria.pedirEntero();
                     for (int i = 0; i < numeroLunas; i++) {
                         System.out.println("Nombre de la luna");
                         nombreLuna = sc.nextLine();
-                        Libreria.pedirString(nombreLuna);
                         System.out.println("y su radio¿?");
-                        radio = Libreria.pedirReal();
+                        radio = Libreria.pedirReal();//usar el escaner
                         satelites.add(new Astro(nombreLuna, radio));
-
                     }
 
                     break;
 
                 case 2:// : Pide su nombre y radio.
-
+                    System.out.println("Como se llama el astro¿?");
+                    nombreAstro = sc.nextLine();
+                    System.out.println("Cual es su radio¿?");
+                    radio = Libreria.pedirReal();
+                    satelites.add(new Astro(nombreAstro, radio));
                     break;
 
                 case 3:// Muestra toda la colección detectando si es Astro o Planeta para mostrar todos
                        // sus datos. En el caso de Astro simplemente llama a toString() y lo muestra,
                        // en el caso de Planetas muestra todos los datos y en particular llamando a
                        // getNombre con parámetro ‘.’
-
+                    System.out.println(satelites.size());
                     break;
 
                 case 4:// Busca Astros/Planetas iguales (aprovecha el equals/indexOf/lastIndexOf ) y

@@ -39,20 +39,5 @@ public class Libreria {
         
         return numero;
     }
-        public static void pedirString(String cadena) { 
-        System.err.println(cadena);
-        ArrayList<Character> cadenaConTrim = new ArrayList<Character>();
-        for (int j = 0; j < cadena.length(); j++) {
-            cadenaConTrim.add(cadena.charAt(j));
-        }
-        while (cadenaConTrim.get(0) == ' ') {
-            cadenaConTrim.remove(0);
-        }
-        while (cadenaConTrim.get(cadenaConTrim.size() - 1) == ' ') {
-            cadenaConTrim.remove(cadenaConTrim.size() - 1);
-        }
-        this.cadena = cadenaConTrim; 
-        System.err.print(cadenaConTrim);
 
-    }
 }
