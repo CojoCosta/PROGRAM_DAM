@@ -20,13 +20,11 @@ public class FormSecundario extends JDialog implements ActionListener, ItemListe
         this.setTitle("Buscador de archivos");
         this.setLayout(null);
         this.setSize(500, 500);
-        
 
         // lista archivos
         String directorio = System.getProperty("user.home");
         File archivos = new File(directorio);
         String[] conjuntoDirectorios = archivos.list();
-        long tamañoArchivos = archivos.length();
         
         cboArchivos = new JComboBox<String>(conjuntoDirectorios);
         cboArchivos.setLocation(20, 20);
@@ -50,9 +48,26 @@ public class FormSecundario extends JDialog implements ActionListener, ItemListe
 
     @Override
     public void itemStateChanged(ItemEvent e) {
+if (e.getStateChange() == ItemEvent.SELECTED) {
+            String selectedItem = (String) cboArchivos.getSelectedItem();
+            String directorioHome = System.getProperty("user.home");
+            File selectedFile = new File(directorioHome, selectedItem);
 
-        File 
-        //hacer el FILE y escribir la ruta
-        txtTamaño.setText(String.format("Tamaño: %d",cboArchivos.getSelectedItem()));
+            if (selectedFile.isFile()) {
+                long tamañoArchivo = selectedFile.length();
+                txtTamaño.setText(String.format("Tamaño del archivo: %d bytes", tamañoArchivo));
+            } else if (selectedFile.isDirectory()) {
+                File[] files = selectedFile.listFiles();
+                String contenido = "";
+                for (File f : files) {
+                    if (f.isDirectory()) {
+                        contenido += String.format("[DIR] %s \n", f.getName());
+                    } else {
+                        contenido += String.format("%s \n", f.getName());
+                    }
+                }
+                txtTamaño.setText(contenido);
+            }
+        }
     }
 }

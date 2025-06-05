@@ -2,9 +2,8 @@ package ejercicios_swing.ejercicio1;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.InputMismatchException;
 
-import javax.swing.JButton;
+import javax.swing.JButton; 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -38,7 +37,7 @@ public class Dado extends JFrame implements ActionListener {
         try {
             numero = Integer.parseInt(limite.trim());
         } catch (NumberFormatException e) {
-        }  
+        }
         if (numero < 1) {
             return (int) (Math.random() * 6) + 1;
         } else {
