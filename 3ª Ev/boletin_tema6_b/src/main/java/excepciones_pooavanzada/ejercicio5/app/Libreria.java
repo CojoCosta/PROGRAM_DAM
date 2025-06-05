@@ -1,6 +1,7 @@
 package excepciones_pooavanzada.ejercicio5.app;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Libreria {
@@ -10,10 +11,15 @@ public class Libreria {
         int numero = 0;
         System.out.print("Escribe un numero entero: ");
         do {
+            flag = true;
             try {
                 numero = sc.nextInt();
             } catch (IllegalArgumentException e) {
                 System.out.print("Escribe un numero entero: ");
+                sc.nextLine();
+                flag = false;
+            }catch (InputMismatchException e) {
+                System.out.print("Escribe un numero: ");
                 sc.nextLine();
                 flag = false;
             }
@@ -28,9 +34,14 @@ public class Libreria {
         boolean flag = true;
         System.out.print("Escribe un numero: ");
         do {
+            flag = true;
             try {
                 numero = sc.nextDouble();
             } catch (IllegalArgumentException e) {
+                System.out.print("Escribe un numero: ");
+                sc.nextLine();
+                flag = false;
+            }catch (InputMismatchException e) {
                 System.out.print("Escribe un numero: ");
                 sc.nextLine();
                 flag = false;

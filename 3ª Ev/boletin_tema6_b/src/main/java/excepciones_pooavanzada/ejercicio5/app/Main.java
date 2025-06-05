@@ -9,15 +9,15 @@ import excepciones_pooavanzada.ejercicio5.clases.Planeta;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Astro> satelites = new ArrayList<Astro>();
+        ArrayList<Astro> coleccionAstros = new ArrayList<Astro>();
         String nombrePlaneta = "";
         String nombreLuna = "";
         String nombreAstro = "";
         Double radio = 0.0;
         int numeroLunas = 0;
-        Boolean gaseoso = null;
         int option = 0;
         int option2 = 0;
+        Planeta planeta = null;
 
         do {
             System.out.println("1. Añadir planeta.");
@@ -38,11 +38,8 @@ public class Main {
                         System.out.println("1.- Sí");
                         System.out.println("2.- No, siguiente pregunta");
                         option2 = Libreria.pedirEntero();
-                        if (option2 == 1) {
-                            satelites.add(new Planeta(nombrePlaneta, radio, true));
-                        } else {
-                            satelites.add(new Planeta(nombrePlaneta, radio, false));
-                        }
+                        planeta = new Planeta(nombrePlaneta, radio, option2 == 1);
+                        coleccionAstros.add(planeta);
                     } while (option2 != 1 && option2 != 2);
                     System.out.println("Cuantas lunas tiene¿?");
                     numeroLunas = Libreria.pedirEntero();
@@ -50,30 +47,49 @@ public class Main {
                         System.out.println("Nombre de la luna");
                         nombreLuna = sc.nextLine();
                         System.out.println("y su radio¿?");
-                        radio = Libreria.pedirReal();//usar el escaner
-                        satelites.add(new Astro(nombreLuna, radio));
+                        radio = Libreria.pedirReal();
+                        planeta.satelites.add(new Astro(nombreLuna, radio));
                     }
 
                     break;
 
-                case 2:// : Pide su nombre y radio.
+                case 2:
                     System.out.println("Como se llama el astro¿?");
                     nombreAstro = sc.nextLine();
                     System.out.println("Cual es su radio¿?");
                     radio = Libreria.pedirReal();
-                    satelites.add(new Astro(nombreAstro, radio));
+                    coleccionAstros.add(new Astro(nombreAstro, radio));
                     break;
 
-                case 3:// Muestra toda la colección detectando si es Astro o Planeta para mostrar todos
-                       // sus datos. En el caso de Astro simplemente llama a toString() y lo muestra,
-                       // en el caso de Planetas muestra todos los datos y en particular llamando a
-                       // getNombre con parámetro ‘.’
-                    System.out.println(satelites.size());
+                case 3:
+                    for (int i = 0; i < coleccionAstros.size(); i++) {
+                        if (coleccionAstros.get(i).getClass() == Planeta.class) {
+                                System.out.printf("%s, radio: %.2f, gaseoso: %b \n", coleccionAstros.get(i).getNombre(),coleccionAstros.get(i).getRadio(), ((Planeta) coleccionAstros.get(i)).getGaseoso() == true);
+                            for (int j = 0; j < planeta.satelites.size(); j++) {
+                                System.out.println(planeta.satelites.get(j).toString());
+                            }
+                        } else {
+                            System.out.println(coleccionAstros.get(i).toString());
+                        }
+                    }
                     break;
 
-                case 4:// Busca Astros/Planetas iguales (aprovecha el equals/indexOf/lastIndexOf ) y
-                       // elimina todas las apariciones menos la primera.
-
+                case 4:
+                    for (int i = 0; i < coleccionAstros.size(); i++) {
+                        for (int j = 0; j < coleccionAstros.size(); j++) {
+                            if (coleccionAstros.get(i).equals(coleccionAstros.get(j))) {
+                                coleccionAstros.remove(j);
+                                j--;
+                            }
+                        }
+                    }
+                    for (int i = 0; i < planeta.satelites.size(); i++) {
+                        for (int j = 0; j < planeta.satelites.size(); j++) {
+                            if (planeta.satelites.get(i).equals(planeta.satelites.get(j))) {
+                                planeta.satelites.remove(j);
+                            }
+                        }
+                    }
                     break;
 
                 case 5:

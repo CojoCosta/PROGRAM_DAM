@@ -38,20 +38,9 @@ public class Astro {
     }
     @Override
     public boolean equals(Object obj) {
-        if (obj.getClass() == Astro.class) {
+        if (obj.getClass() == this.getClass()) {
             Astro astro1 = (Astro) obj;
-            if (astro1.getNombre() == Astro.class.getName() && astro1.getClass() == Astro.class) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (obj.getClass() == Planeta.class) {
-            Planeta planeta1 = (Planeta) obj;
-            if (planeta1.getNombre() == Planeta.class.getName() && planeta1.getClass() == Planeta.class) {
-                return true;
-            } else{
-                return false;
-            }
+            return astro1.getNombre().equals(this.getNombre());
         }else {
             throw new IllegalArgumentException();
         }
